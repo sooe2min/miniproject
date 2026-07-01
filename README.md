@@ -1,23 +1,23 @@
 ### 1. 서버 실행: `json-server --watch db.json --port`
 
-### 2. Branch 전략: https://app.notion.com/p/branch-38fabd06af53802380f4fa848d236372
+### 2. [branch 작업 프로세스](https://app.notion.com/p/branch-38fabd06af53802380f4fa848d236372)
 
 - `feature/컴포넌트이름` 형식.
 - PR은 제가(수민) 하겠습니다.
 
-### 3. Claude Rules: https://app.notion.com/p/Claude-Rules-38fabd06af5380e3b475cbdec8a277d3
+### 3. [Claude Rules](https://app.notion.com/p/Claude-Rules-38fabd06af5380e3b475cbdec8a277d3)
 
 클로드를 위한 지침이지만 코드에 적용되는 규칙이니 중간중간 참고하시면 됩니다.
 저는 클로드가 문서 대로 얼마나 말을 잘 드을지 몰라서 처음부터 내용을 인지시키고 작업하려고 합니다.
 
-예) "우리 프로젝트 개발 규칙 파일(CLAUDE*개발*규칙.md)을 올렸어. 이 규칙을 철저히 지켜서 \*\* 기능을 작성해줘. 참고로 내 고유 접두사는 sm(본인 이름)- 이야. 네가 새로 만드는 모든 함수, id, 클래스명 앞에는 무조건 sm-을 붙여서 코드를 짜줘."
+예) "우리 프로젝트 개발 규칙 파일(CLAUDE_RULES.md)을 올렸어. 이 규칙을 철저히 지켜서 기능을 작성해줘. 참고로 내 고유 접두사는 sm(본인 이름)- 이야. 네가 새로 만드는 모든 함수, id, 클래스명 앞에는 무조건 sm-을 붙여서 코드를 짜줘."
 
 ### 4. 폴더 구조
 
 ```bash
 miniproject/
   ├── .gitignore
-  ├── CLAUDE_RULE.md
+  ├── CLAUDE_RULES.md
   │
   ├── backend/
   │     └── db.json
