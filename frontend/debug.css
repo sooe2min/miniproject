@@ -2,12 +2,7 @@
 .page-wrapper,
 .main-content,
 .gnb-container,
-.gnb-logo-area,
-.gnb-service-name,
-.gnb-breadcrumb-area,
 .footer-container,
-.footer-copyright-area,
-.footer-link-area,
 .hero-section-box,
 .job-card-container,
 .job-card-box,
@@ -31,7 +26,13 @@
   outline-offset: -1px;
 }
 
-/* .job-postings-section,
+/* .gnb-logo-area,
+gnb-logo-area
+.gnb-service-name,
+.gnb-breadcrumb-area,
+.footer-copyright-area,
+.footer-link-area,
+.job-postings-section,
 .job-postings-title-bar,
 .job-postings-card-list 
 .job-posting-card-box  */

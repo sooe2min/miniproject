@@ -17,11 +17,16 @@
       <header>
         <nav class="gnb-container">
           <div class="gnb-logo-area">
-            <!-- [팀원 가이드] 이 박스 내부에 로고 이미지(<img>)를 구현하세요. -->
+            <img src="./assets/images/salesforce.png" alt="SF 취업 가이드 로고" />
           </div>
 
+          <span class="gnb-service-name">SF 취업 가이드</span>
+
+          <!-- 브레드크럼: 홈 → [직무명] — gnb.js가 직무명을 URL 파라미터로 동적 주입 -->
           <div class="gnb-breadcrumb-area">
-            <!-- [팀원 가이드] 이 박스 내부에 현재 경로(예: 홈 → Developer)를 구현하세요. -->
+            <span class="gnb-bc-home">홈</span>
+            <span class="gnb-bc-sep">→</span>
+            <span class="gnb-bc-job" id="gnb-bc-job">Developer</span>
           </div>
         </nav>
       </header>
@@ -108,9 +113,26 @@
           <!-- 슬라이더 영역
              [구조] 이전 버튼(좌) + 카드 목록(중, overflow:hidden) + 다음 버튼(우) -->
           <div class="sf-jp-slider-area">
-            <button class="sf-jp-arrow sf-jp-arrow--prev" id="sf-jp-arrow-prev" aria-label="이전 공고">
-              <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-                <path d="M13 4L7 10L13 16" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+            <button
+              class="sf-jp-arrow sf-jp-arrow--prev"
+              id="sf-jp-arrow-prev"
+              aria-label="이전 공고"
+            >
+              <svg
+                width="20"
+                height="20"
+                viewBox="0 0 20 20"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+                aria-hidden="true"
+              >
+                <path
+                  d="M13 4L7 10L13 16"
+                  stroke="currentColor"
+                  stroke-width="1.5"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                />
               </svg>
             </button>
 
@@ -119,9 +141,26 @@
               <div class="job-postings-card-list" id="sf-jp-card-list"></div>
             </div>
 
-            <button class="sf-jp-arrow sf-jp-arrow--next" id="sf-jp-arrow-next" aria-label="다음 공고">
-              <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-                <path d="M7 4L13 10L7 16" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+            <button
+              class="sf-jp-arrow sf-jp-arrow--next"
+              id="sf-jp-arrow-next"
+              aria-label="다음 공고"
+            >
+              <svg
+                width="20"
+                height="20"
+                viewBox="0 0 20 20"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+                aria-hidden="true"
+              >
+                <path
+                  d="M7 4L13 10L7 16"
+                  stroke="currentColor"
+                  stroke-width="1.5"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                />
               </svg>
             </button>
           </div>
@@ -137,18 +176,29 @@
          ================================================ -->
       <footer>
         <div class="footer-container">
+          <!-- 좌측: 로고 + 서비스명·카피라이트 -->
           <div class="footer-copyright-area">
-            <!-- [팀원 가이드] 이 박스 내부에 카피라이트 텍스트를 구현하세요.
-               예: © 2025 Team Name. All rights reserved. -->
+            <img
+              src="./assets/images/salesforce.png"
+              alt="SF 취업 가이드 로고"
+              class="ft-logo"
+            />
+            <div class="ft-brand-text">
+              <span class="ft-service-name">SF 취업 가이드</span>
+              <span class="ft-copyright">© 2025 Team Name. All rights reserved.</span>
+            </div>
           </div>
 
+          <!-- 우측: 정책 링크 -->
           <div class="footer-link-area">
-            <!-- [팀원 가이드] 이 박스 내부에 푸터 링크들을 가로로 나열하세요.
-               예: 개인정보처리방침 / 이용약관 / GitHub -->
+            <span class="ft-link-text">이용약관</span>
+            <span class="ft-sep">|</span>
+            <span class="ft-link-text">개인정보처리방침</span>
           </div>
         </div>
       </footer>
     </div>
+    <script src="./gnb.js"></script>
     <script src="./job-postings.js"></script>
   </body>
 </html>
