@@ -1,0 +1,117 @@
+// json-server가 떠 있는 로컬 서버 주소
+const API = "http://localhost:3000";
+
+function sfFormRender() {
+  const formContainer = document.querySelector(".form-container-box");
+
+  formContainer.innerHTML = `
+    <h3 class="sf-form-title">직무 요약 메일 신청</h3>
+    <p class="sf-form-desc">관심 있는 직무의 요약 정보를 이메일로 받아보세요</p>
+
+    <input type="text" id="sf-name-input" class="sf-form-input" placeholder="이름" />
+    <input type="email" id="sf-email-input" class="sf-form-input" placeholder="이메일" />
+
+    <select id="sf-job-select" class="sf-form-select">
+      <option value="" disabled selected hidden>관심 직무 선택</option>
+      <option value="admin">Admin</option>
+      <option value="dev">Developer</option>
+      <option value="consultant">Consultant</option>
+      <option value="pu">Power User</option>
+    </select>
+
+    <button type="button" id="sf-submit-btn" class="sf-form-submit-btn">정보 받기</button>
+  `;
+}
+
+document.addEventListener("DOMContentLoaded", () => {
+  sfFormRender();
+
+  // 렌더링이 끝난 후 제출 버튼에 클릭 이벤트를 연결
+  const submitBtn = document.getElementById("sf-submit-btn");
+  submitBtn.addEventListener("click", sfFormHandleSubmit);
+});
+
+function sfFormHandleSubmit(event) {
+  const nameInput = document.getElementById("sf-name-input");
+  const emailInput = document.getElementById("sf-email-input");
+  const jobSelect = document.getElementById("sf-job-select");
+
+  // 이름이 입력되었는지 확인
+  if (nameInput.value.trim() === "") {
+    alert("이름을 입력해주세요.");
+    return;
+  }
+
+  // 이름에 영어, 한글 이외의 문자(숫자, 특수기호, 공백 등)가 있는지 확인
+  const namePattern = /^[a-zA-Z가-힣]+$/;
+  if (!namePattern.test(nameInput.value.trim())) {
+    alert("이름은 영어와 한글만 입력할 수 있습니다.");
+    return;
+  }
+
+  // 이메일이 입력되었는지 확인
+  if (emailInput.value.trim() === "") {
+    alert("이메일을 입력해주세요.");
+    return;
+  }
+
+  // 이메일에 영어, 숫자, @, . 이외의 문자가 있는지 확인
+  const emailPattern = /^[a-zA-Z0-9]+@[a-zA-Z0-9.]+$/;
+  if (!emailPattern.test(emailInput.value.trim())) {
+    alert("이메일은 영어, 숫자와 @, . 기호만 사용할 수 있습니다.");
+    return;
+  }
+
+  // 관심 직무가 선택되었는지 확인 (placeholder 값은 빈 문자열)
+  if (jobSelect.value === "") {
+    alert("관심 직무를 선택해주세요.");
+    return;
+  }
+
+  // 검증을 통과하면 서버 전송용 데이터로 정리해서 넘김
+  const formData = {
+    name: nameInput.value.trim(),
+    email: emailInput.value.trim(),
+    interested_career: jobSelect.value,
+  };
+
+  sfFormSubmitData(formData);
+}
+
+async function sfFormSubmitData(data) {
+  const apiUrl = `${API}/subscribers`;
+
+  try {
+    // 1. 기존 구독자 목록을 조회해서 현재 마지막 id 값을 확인
+    const listResponse = await fetch(apiUrl);
+    const subscribers = await listResponse.json();
+
+    // 2. 목록이 비어있으면 1, 아니면 (가장 큰 id + 1)을 새 id로 사용
+    const maxId = subscribers.reduce(
+      (max, subscriber) => Math.max(max, subscriber.id),
+      0,
+    );
+    const newSubscriber = {
+      id: maxId + 1,
+      ...data,
+    };
+
+    // 3. 새 구독자 데이터를 서버(db.json)에 등록
+    const postResponse = await fetch(apiUrl, {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify(newSubscriber),
+    });
+
+    if (!postResponse.ok) {
+      throw new Error("서버 등록에 실패했습니다.");
+    }
+
+    alert("신청이 완료되었습니다! 이메일 발송 예정입니다.");
+  } catch (error) {
+    console.error(error);
+    alert(
+      "신청 중 오류가 발생했습니다. json-server가 켜져 있는지 확인해주세요.",
+    );
+  }
+}
