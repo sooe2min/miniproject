@@ -1,0 +1,221 @@
+/* ============================================================
+   job-postings.css — 채용 공고 컴포넌트 내부 스타일
+   접두사: sf-jp- | json-server /careers/:id 연동
+   디자인 토큰은 style.css의 :root 변수를 공유하여 사용
+   ============================================================ */
+
+/* ----------------------------------------------------------
+   타이틀 바 — 아이콘(.sf-jp-title-icon) + 텍스트(.sf-jp-title-text)
+   ---------------------------------------------------------- */
+
+.sf-jp-title-icon {
+  width: 24px;
+  height: 24px;
+  object-fit: contain; /* 이미지 원본 비율 유지 */
+}
+
+.sf-jp-title-text {
+  font-size: var(--text-xl);
+  font-weight: var(--font-bold);
+  color: var(--color-text);
+}
+
+/* ----------------------------------------------------------
+   카드 내부 — 상단 회사 레이블 (작은 그레이 텍스트)
+   ---------------------------------------------------------- */
+
+.sf-jp-company-label {
+  font-size: var(--text-xs);
+  font-weight: var(--font-medium);
+  color: var(--color-subtext);
+  letter-spacing: 0.03em;
+  margin-bottom: var(--space-2);
+}
+
+/* ----------------------------------------------------------
+   카드 내부 — 로고 이미지 + 직무 타이틀 가로 배치
+   ---------------------------------------------------------- */
+
+.sf-jp-card-main {
+  display: flex; /* 로고와 타이틀을 가로로 나란히 배치 */
+  align-items: flex-start; /* 타이틀이 여러 줄이어도 로고 상단 기준으로 정렬 */
+  gap: var(--space-3);
+  margin-bottom: var(--space-3);
+}
+
+/* 회사 로고 이미지 — 원형 회색 배경 위에 표시 */
+.sf-jp-company-logo {
+  flex-shrink: 0; /* 타이틀이 길어도 로고 크기 고정 */
+  width: 32px;
+  height: 32px;
+  border-radius: var(--radius-full);
+  background-color: var(--color-gray-100);
+  object-fit: contain;
+  padding: 4px; /* SVG 로고가 원 안에 여백을 가지도록 */
+}
+
+/* 직무 타이틀 — 로고 옆에 위치하는 굵은 텍스트 */
+.sf-jp-job-title {
+  font-size: var(--text-base);
+  font-weight: var(--font-bold);
+  color: var(--color-text);
+  line-height: 1.4;
+  padding-top: var(--space-1); /* 로고 수직 중심과 미세 정렬 보정 */
+}
+
+/* ----------------------------------------------------------
+   카드 내부 — 직무 요약 설명 (3줄 말줄임)
+   ---------------------------------------------------------- */
+
+.sf-jp-job-desc {
+  font-size: var(--text-sm);
+  color: var(--color-subtext);
+  line-height: 1.6;
+  flex: 1; /* 남은 세로 공간을 채워 태그·링크를 카드 하단으로 밀어냄 */
+  margin-bottom: var(--space-3);
+  display: -webkit-box;
+  -webkit-line-clamp: 3; /* 최대 3줄만 표시, 초과 시 말줄임(...) */
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+/* ----------------------------------------------------------
+   카드 내부 — 하단 배지 행 (도시·경력 / 등록일)
+   [구조] 좌측 배지 그룹(flex) ←→ 우측 등록일 텍스트
+   ---------------------------------------------------------- */
+
+.sf-jp-tag-row {
+  display: flex;                   /* 좌측 배지 묶음과 우측 등록일을 가로 배치 */
+  align-items: center;             /* 수직 중앙 정렬 */
+  justify-content: space-between;  /* 배지(좌) ←→ 등록일(우) 양끝 정렬 */
+}
+
+/* 좌측 배지 묶음 — 도시명·경력 연차 */
+.sf-jp-tags-left {
+  display: flex;                   /* 배지들을 가로로 나란히 배치 */
+  align-items: center;
+  flex-wrap: wrap;                 /* 배지가 많을 때 줄 바꿈 허용 */
+  gap: var(--space-2);
+}
+
+/* 배지 태그 — 도시명·경력 연차 표시 */
+.sf-jp-tag {
+  display: inline-flex;
+  align-items: center;
+  padding: var(--space-1) var(--space-3);
+  background-color: var(--color-gray-100);
+  border-radius: var(--radius-full);
+  font-size: var(--text-xs);
+  font-weight: var(--font-bold);
+  color: var(--color-gray-700);
+}
+
+/* 우측 등록일 텍스트 */
+.sf-jp-days-ago {
+  flex-shrink: 0;                  /* 배지 그룹이 늘어나도 등록일 텍스트 크기 고정 */
+  font-size: var(--text-xs);
+  color: var(--color-subtext);
+  margin-left: var(--space-2);
+}
+
+/* ----------------------------------------------------------
+   카드 전체 클릭 영역 — 커서 및 hover 피드백
+   ---------------------------------------------------------- */
+
+.job-posting-card-box {
+  cursor: pointer;
+  transition: box-shadow 0.15s ease, border-color 0.15s ease;
+}
+
+.job-posting-card-box:hover {
+  box-shadow: var(--shadow-lg);
+  border-color: var(--color-gray-400);
+}
+
+/* ----------------------------------------------------------
+   슬라이더 영역 — 화살표 버튼 + 카드 목록 가로 배치 틀
+   ---------------------------------------------------------- */
+
+.sf-jp-slider-area {
+  display: flex;                   /* 화살표(좌) + 슬라이더(중) + 화살표(우) 가로 배치 */
+  align-items: center;             /* 수직 중앙 정렬 */
+  gap: var(--space-3);
+}
+
+/* 슬라이더 wrapper — 보이는 영역만 노출, 나머지 카드 숨김 */
+.sf-jp-slider-wrapper {
+  flex: 1;                         /* 화살표 버튼을 제외한 나머지 가로 공간 전부 차지 */
+  overflow: hidden;                /* 4개 외 카드를 시각적으로 clip */
+}
+
+/* 카드 목록 — 슬라이드 이동 애니메이션 */
+.job-postings-card-list {
+  transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* 화살표 버튼 — 원형, 테두리, hover / disabled 피드백 */
+.sf-jp-arrow {
+  flex-shrink: 0;                  /* 화살표 버튼이 wrapper에 의해 눌리지 않도록 고정 */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  border-radius: var(--radius-full);
+  border: 1px solid var(--color-border);
+  background-color: var(--color-surface);
+  color: var(--color-gray-700);
+  cursor: pointer;
+  transition: background-color 0.15s ease, border-color 0.15s ease, color 0.15s ease;
+}
+
+.sf-jp-arrow:hover:not(:disabled) {
+  background-color: var(--color-gray-50);
+  border-color: var(--color-gray-400);
+  color: var(--color-text);
+}
+
+.sf-jp-arrow:disabled {
+  opacity: 0.3;
+  cursor: not-allowed;
+}
+
+/* ----------------------------------------------------------
+   페이지네이션 도트 — 슬라이드 위치 표시
+   ---------------------------------------------------------- */
+
+.sf-jp-pagination {
+  display: flex;                   /* 도트들을 가로로 나란히 배치 */
+  align-items: center;
+  justify-content: center;         /* 도트 행 수평 중앙 정렬 */
+  gap: var(--space-2);
+  padding-top: var(--space-2);
+}
+
+/* 기본 도트 — 작은 원형 회색 */
+.sf-jp-dot {
+  width: 6px;
+  height: 6px;
+  border-radius: var(--radius-full);
+  background-color: var(--color-gray-200);
+  border: none;
+  padding: 0;
+  cursor: pointer;
+  transition: background-color 0.2s ease, width 0.2s ease;
+}
+
+/* 활성 도트 — 세일즈포스 블루 pill 형태 */
+.sf-jp-dot--active {
+  background-color: var(--color-primary);
+  width: 18px;
+}
+
+/* ----------------------------------------------------------
+   공고 없을 때 안내 메시지
+   ---------------------------------------------------------- */
+
+.sf-jp-empty-msg {
+  font-size: var(--text-base);
+  color: var(--color-subtext);
+  padding: var(--space-6) 0;
+}

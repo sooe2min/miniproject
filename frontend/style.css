@@ -1,7 +1,71 @@
 /* ============================================================
-   style.css — 공통 레이아웃 겉틀 (컨테이너 레벨만 정의)
-   규칙: 내부 알맹이 CSS 금지 / Flexbox 전용 / 한글 주석 필수
+   style.css — 공통 레이아웃 겉틀 + 디자인 시스템
+   규칙: Flexbox 전용 / 순수 CSS / 한글 주석 필수
    ============================================================ */
+
+/* ----------------------------------------------------------
+   디자인 토큰 (Design Tokens)
+   Toss·Notion 스타일 + Tailwind 스케일 기반 순수 CSS 구현
+   ---------------------------------------------------------- */
+:root {
+  /* 브랜드 컬러 */
+  --color-primary: #00a1e0; /* 세일즈포스 블루 (포인트 컬러) */
+  --color-primary-light: #e0f4fc; /* 포인트 연한 버전 (배지·hover용) */
+
+  /* 그레이 스케일 (Tailwind 기반) */
+  --color-gray-50: #f9fafb;
+  --color-gray-100: #f3f4f6;
+  --color-gray-200: #e5e7eb;
+  --color-gray-400: #9ca3af;
+  --color-gray-500: #6b7280;
+  --color-gray-700: #374151;
+  --color-gray-900: #111827;
+
+  /* 시맨틱 컬러 */
+  --color-bg: #f5f6f8; /* 페이지 전체 배경 */
+  --color-surface: #ffffff; /* 카드·패널 표면 */
+  --color-border: #e5e7eb; /* 구분선·테두리 */
+  --color-text: #191f28; /* 본문 메인 텍스트 */
+  --color-subtext: #6b7280; /* 보조 텍스트 */
+
+  /* 타이포그래피 스케일 */
+  --text-xs: 11px;
+  --text-sm: 13px;
+  --text-base: 15px;
+  --text-lg: 17px;
+  --text-xl: 20px;
+  --text-2xl: 24px;
+
+  /* 폰트 웨이트 */
+  --font-normal: 400;
+  --font-medium: 500;
+  --font-semibold: 600;
+  --font-bold: 700;
+
+  /* 보더 래디우스 */
+  --radius-sm: 6px;
+  --radius-md: 10px;
+  --radius-lg: 14px;
+  --radius-xl: 20px;
+  --radius-full: 9999px;
+
+  /* 박스 그림자 (Tailwind shadow 스케일 참고) */
+  --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.05);
+  --shadow-md: 0 2px 8px rgba(0, 0, 0, 0.07);
+  --shadow-lg: 0 4px 16px rgba(0, 0, 0, 0.08);
+
+  /* 스페이싱 스케일 (4px 단위) */
+  --space-1: 4px;
+  --space-2: 8px;
+  --space-3: 12px;
+  --space-4: 16px;
+  --space-5: 20px;
+  --space-6: 24px;
+  --space-7: 28px;
+  --space-8: 32px;
+  --space-10: 40px;
+  --space-12: 48px;
+}
 
 /* ----------------------------------------------------------
    기본 리셋
@@ -15,8 +79,10 @@
 body {
   font-family:
     -apple-system, BlinkMacSystemFont, "Segoe UI", "Pretendard", sans-serif;
-  background-color: #f5f6f8;
-  color: #191f28;
+  background-color: var(--color-bg);
+  color: var(--color-text);
+  font-size: var(--text-base);
+  line-height: 1.5;
 }
 
 /* ----------------------------------------------------------
@@ -30,29 +96,27 @@ body {
 
 .main-content {
   flex: 1; /* 남은 세로 공간을 채워 푸터를 하단에 밀어둠 */
-  padding: 40px 48px;
+  padding: var(--space-10) var(--space-12);
   display: flex; /* 내부 섹션들을 세로로 쌓기 위한 flex 설정 */
   flex-direction: column; /* 섹션을 위→아래 방향으로 나열 */
-  gap: 32px;
+  gap: var(--space-8);
 }
 
 /* ----------------------------------------------------------
    GNB — 글로벌 내비게이션 바
    ---------------------------------------------------------- */
 .gnb-container {
-  display: flex;               /* 로고와 옆 요소를 가로로 나란히 배치 */
-  align-items: center;         /* 수직 방향 중앙 정렬 */
-  gap: 12px;                   /* 로고와 이웃 요소 사이 간격 */
-  padding: 0 48px;
+  display: flex; /* 로고와 옆 요소를 가로로 나란히 배치 */
+  align-items: center; /* 수직 방향 중앙 정렬 */
+  gap: var(--space-3); /* 로고와 이웃 요소 사이 간격 */
+  padding: 0 var(--space-12);
   height: 64px;
-  background-color: #ffffff;
-  box-shadow: 0 1px 0 #e5e8eb;
+  background-color: var(--color-surface);
+  box-shadow: 0 1px 0 var(--color-border);
 }
 
 .gnb-logo-area {
-  /* [팀원 가이드] 이 박스 내부에 로고 이미지를 자유롭게 구현하세요. */
-  display: flex; /* 내부 이미지 크기에 딱 맞게 박스를 감싸기 위한 flex 설정 */
-  width: fit-content; /* 이미지 실제 너비만큼만 박스 너비 차지 */
+  min-width: 80px;
   min-height: 32px;
 }
 
@@ -68,9 +132,7 @@ body {
 }
 
 .gnb-breadcrumb-area {
-  margin-left: auto;           /* 나머지 공간을 밀어 자동으로 우측 끝에 위치 */
-  /* detail.html 전용 — 경로 표시(예: 홈 → Developer) 자리 */
-  /* [팀원 가이드] 이 박스 내부에 페이지 경로(breadcrumb)를 구현하세요. */
+  margin-left: auto; /* 나머지 공간을 밀어 자동으로 우측 끝에 위치 */
 }
 
 /* ----------------------------------------------------------
@@ -80,21 +142,20 @@ body {
   display: flex; /* 카피라이트와 링크 메뉴를 가로로 배치 */
   justify-content: space-between; /* 카피라이트(좌)와 링크(우)를 양 끝으로 밀어 정렬 */
   align-items: center; /* 수직 방향 중앙 정렬 */
-  padding: 0 48px;
+  padding: 0 var(--space-12);
   height: 72px;
-  background-color: #ffffff;
-  border-top: 1px solid #e5e8eb;
+  background-color: var(--color-surface);
+  border-top: 1px solid var(--color-border);
 }
 
 .footer-copyright-area {
-  /* [팀원 가이드] 이 박스 내부에 카피라이트 텍스트(예: © 2025 Team Name)를 구현하세요. */
   min-height: 20px;
 }
 
 .footer-link-area {
   display: flex; /* 푸터 링크들을 가로로 나열 */
   align-items: center; /* 링크 항목 수직 중앙 정렬 */
-  gap: 24px;
+  gap: var(--space-6);
   min-height: 20px;
 }
 
@@ -111,10 +172,10 @@ body {
   align-items: center; /* 수평 방향 중앙 정렬 */
   justify-content: center; /* 수직 방향 중앙 정렬 */
   min-height: 300px;
-  padding: 48px;
-  background-color: #ffffff;
-  border-radius: 20px;
-  box-shadow: 0 2px 16px rgba(0, 0, 0, 0.06);
+  padding: var(--space-12);
+  background-color: var(--color-surface);
+  border-radius: var(--radius-xl);
+  box-shadow: var(--shadow-md);
 }
 
 /* ----------------------------------------------------------
@@ -122,7 +183,7 @@ body {
    ---------------------------------------------------------- */
 .job-card-container {
   display: flex; /* 직무 카드들을 가로로 나란히 배치 */
-  gap: 20px; /* 카드 사이 간격 */
+  gap: var(--space-5);
 }
 
 .job-card-box {
@@ -130,10 +191,10 @@ body {
   flex-direction: column; /* 캐릭터→타이틀→태그→버튼 순으로 위→아래 배치 */
   flex: 1; /* 4개 카드가 동일한 너비를 가지도록 균등 분배 */
   min-height: 280px;
-  padding: 28px;
-  background-color: #ffffff;
-  border-radius: 16px;
-  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.06);
+  padding: var(--space-7);
+  background-color: var(--color-surface);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-md);
 }
 
 /* ----------------------------------------------------------
@@ -141,53 +202,49 @@ body {
    ---------------------------------------------------------- */
 .bottom-layout-container {
   display: flex; /* 폼 박스와 방명록 박스를 가로로 나란히 배치 */
-  gap: 24px;
-  align-items: flex-start; /* 두 박스의 상단 기준으로 정렬 (높이가 달라도 위에서 시작) */
+  gap: var(--space-6);
+  align-items: flex-start; /* 두 박스의 상단 기준으로 정렬 */
 }
 
-/* Form Box — 좌측 */
 .form-container-box {
   display: flex; /* 입력 요소들을 세로로 쌓기 위한 flex 설정 */
   flex-direction: column; /* 입력 필드들과 버튼을 위→아래로 배치 */
   flex: 1; /* 좌/우 박스가 동일한 너비를 가지도록 균등 분배 */
   min-height: 360px;
-  padding: 32px;
-  background-color: #ffffff;
-  border-radius: 16px;
-  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.06);
+  padding: var(--space-8);
+  background-color: var(--color-surface);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-md);
 }
 
-/* Guestbook Box — 우측 */
 .guestbook-container-box {
   display: flex; /* 입력 상단부와 리스트 하단부를 세로로 쌓기 위한 flex 설정 */
   flex-direction: column; /* 입력 영역과 목록 영역을 위→아래로 배치 */
   flex: 1; /* 좌/우 박스가 동일한 너비를 가지도록 균등 분배 */
   min-height: 360px;
-  padding: 32px;
-  background-color: #ffffff;
-  border-radius: 16px;
-  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.06);
+  padding: var(--space-8);
+  background-color: var(--color-surface);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-md);
 }
 
 .guestbook-input-area {
-  /* [팀원 가이드] 이 박스 내부에 방명록 입력 필드와 등록 버튼을 자유롭게 구현하세요. */
   min-height: 80px;
-  margin-bottom: 20px;
+  margin-bottom: var(--space-5);
 }
 
 .guestbook-list-area {
   display: flex; /* 방명록 아이템들을 세로로 나열 */
   flex-direction: column; /* 아이템을 위→아래로 쌓음 */
   flex: 1; /* 남은 세로 공간을 모두 채움 */
-  gap: 12px;
+  gap: var(--space-3);
 }
 
 .guestbook-item-box {
-  /* [팀원 가이드] 이 박스 내부에 작성자명, 날짜, 내용을 자유롭게 구현하세요. */
   min-height: 64px;
-  padding: 16px 20px;
-  background-color: #f9fafb;
-  border-radius: 12px;
+  padding: var(--space-4) var(--space-5);
+  background-color: var(--color-gray-50);
+  border-radius: var(--radius-md);
 }
 
 /* ==========================================================
@@ -199,47 +256,47 @@ body {
    ---------------------------------------------------------- */
 .detail-main-splitter {
   display: flex; /* 사이드바와 메인 콘텐츠를 가로로 나란히 배치 */
-  gap: 24px;
+  gap: var(--space-6);
   align-items: flex-start; /* 두 영역의 상단 기준으로 정렬 */
 }
 
 /* Left Column Wrapper — 사이드바 + 페이지 요약 박스를 세로로 묶는 컨테이너 */
 .left-column-wrapper {
-  display: flex;               /* 사이드바와 페이지 요약 박스를 세로로 쌓음 */
-  flex-direction: column;      /* 위→아래 방향으로 배치 */
-  flex: 1;                     /* detail-main-splitter에서 1/4 비율 (right-main의 flex:3 대비) */
-  align-self: stretch;         /* 형제 요소(right-main-content) 높이만큼 세로 전체를 채움 */
-  gap: 16px;
+  display: flex; /* 사이드바와 페이지 요약 박스를 세로로 쌓음 */
+  flex-direction: column; /* 위→아래 방향으로 배치 */
+  flex: 1; /* detail-main-splitter에서 1/4 비율 */
+  align-self: stretch; /* 형제(right-main-content) 높이만큼 세로 전체를 채움 */
+  gap: var(--space-4);
 }
 
 /* Left Sidebar */
 .left-sidebar-box {
-  display: flex;               /* 메뉴 버튼들을 세로로 나열 */
-  flex-direction: column;      /* 사이드바 메뉴를 위→아래로 쌓음 */
-  flex: 1;                     /* 남은 세로 공간을 모두 채워 page-summary-box를 바닥으로 밀어냄 */
-  gap: 8px;
-  padding: 24px;
-  background-color: #ffffff;
-  border-radius: 16px;
-  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.06);
+  display: flex; /* 메뉴 버튼들을 세로로 나열 */
+  flex-direction: column; /* 사이드바 메뉴를 위→아래로 쌓음 */
+  flex: 1; /* 남은 세로 공간을 채워 page-summary-box를 바닥으로 밀어냄 */
+  gap: var(--space-2);
+  padding: var(--space-6);
+  background-color: var(--color-surface);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-md);
 }
 
 /* Page Summary Box — "이 페이지에서" 요약 컴포넌트 틀 */
 .page-summary-box {
-  display: flex;               /* 타이틀과 항목들을 세로로 쌓기 위한 flex 설정 */
-  flex-direction: column;      /* 위→아래 방향으로 배치 */
-  padding: 24px;
-  background-color: #ffffff;
-  border-radius: 16px;
-  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.06);
+  display: flex; /* 타이틀과 항목들을 세로로 쌓기 위한 flex 설정 */
+  flex-direction: column; /* 위→아래 방향으로 배치 */
+  padding: var(--space-6);
+  background-color: var(--color-surface);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-md);
 }
 
 /* Right Main Content */
 .right-main-content {
   display: flex; /* 2개의 섹션을 세로로 쌓기 위한 flex 설정 */
   flex-direction: column; /* 헤더→미드 콘텐츠 순으로 위→아래 배치 */
-  flex: 3; /* 전체 너비의 약 3/4 비율 (사이드바의 flex:1 대비) */
-  gap: 24px;
+  flex: 3; /* 전체 너비의 약 3/4 비율 */
+  gap: var(--space-6);
 }
 
 /* ----------------------------------------------------------
@@ -250,43 +307,41 @@ body {
   justify-content: space-between; /* 텍스트(좌)와 일러스트(우)를 양 끝으로 밀어 정렬 */
   align-items: center; /* 수직 방향 중앙 정렬 */
   min-height: 200px;
-  padding: 40px;
-  background-color: #ffffff;
-  border-radius: 16px;
-  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.06);
+  padding: var(--space-10);
+  background-color: var(--color-surface);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-md);
 }
 
 .detail-header-text-area {
   flex: 1; /* 텍스트 영역이 남은 가로 공간을 차지 */
-  /* [팀원 가이드] 이 박스 내부에 직무 타이틀, 부제목, 설명 텍스트를 자유롭게 구현하세요. */
 }
 
 .detail-header-illust-area {
   flex-shrink: 0; /* 일러스트 영역이 줄어들지 않도록 고정 */
   width: 200px;
   min-height: 160px;
-  /* [팀원 가이드] 이 박스 내부에 직무 대표 일러스트 이미지를 구현하세요. */
 }
 
 /* ----------------------------------------------------------
    Mid Content — 좌(적합성 체크리스트) / 우(추천 자격증 로드맵) 2분할 틀
    ---------------------------------------------------------- */
 .mid-content-flex-layout {
-  display: flex;               /* 두 카드를 가로로 나란히 배치 */
-  gap: 20px;
-  align-items: flex-start;     /* 카드들의 상단 기준으로 정렬 */
+  display: flex; /* 두 카드를 가로로 나란히 배치 */
+  gap: var(--space-5);
+  align-items: flex-start; /* 카드들의 상단 기준으로 정렬 */
 }
 
 .checklist-card-box,
 .roadmap-card-box {
-  display: flex;               /* 카드 내부 요소들을 세로로 쌓기 위한 flex 설정 */
-  flex-direction: column;      /* 카드 내부 콘텐츠를 위→아래로 배치 */
-  flex: 1;                     /* 두 카드가 동일한 너비를 가지도록 균등 분배 */
+  display: flex; /* 카드 내부 요소들을 세로로 쌓기 위한 flex 설정 */
+  flex-direction: column; /* 카드 내부 콘텐츠를 위→아래로 배치 */
+  flex: 1; /* 두 카드가 동일한 너비를 가지도록 균등 분배 */
   min-height: 280px;
-  padding: 28px;
-  background-color: #ffffff;
-  border-radius: 16px;
-  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.06);
+  padding: var(--space-7);
+  background-color: var(--color-surface);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-md);
 }
 
 /* ----------------------------------------------------------
@@ -295,31 +350,31 @@ body {
 .job-postings-section {
   display: flex; /* 타이틀 바와 카드 리스트를 세로로 쌓기 위한 flex 설정 */
   flex-direction: column; /* 타이틀(상)과 카드 목록(하)을 위→아래로 배치 */
-  gap: 20px;
-  padding: 32px;
-  background-color: #ffffff;
-  border-radius: 16px;
-  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.06);
+  gap: var(--space-5);
+  padding: var(--space-8);
+  background-color: var(--color-surface);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-md);
 }
 
 .job-postings-title-bar {
-  display: flex;               /* 아이콘과 타이틀을 가로로 나란히 배치 */
-  align-items: center;         /* 수직 방향 중앙 정렬 */
-  gap: 8px;                    /* 아이콘과 타이틀 사이 간격 */
-  /* [팀원 가이드] 이 박스 내부에 섹션 아이콘과 타이틀 텍스트를 구현하세요. */
+  display: flex; /* 아이콘과 타이틀을 가로로 나란히 배치 */
+  align-items: center; /* 수직 방향 중앙 정렬 */
+  gap: var(--space-2);
 }
 
 .job-postings-card-list {
   display: flex; /* 채용 공고 카드들을 가로로 나란히 배치 */
-  gap: 16px;
+  gap: var(--space-4);
 }
 
 .job-posting-card-box {
   display: flex; /* 공고 카드 내부 요소들을 세로로 쌓기 위한 flex 설정 */
   flex-direction: column; /* 카드 내부 콘텐츠를 위→아래로 배치 */
   flex: 1; /* 카드들이 동일한 너비를 가지도록 균등 분배 */
-  min-height: 160px;
-  padding: 24px;
-  background-color: #f9fafb;
-  border-radius: 12px;
+  min-height: 180px;
+  padding: var(--space-5);
+
+  border-radius: var(--radius-md);
+  border: 1px solid var(--color-border); /* 카드 구분을 위한 연한 테두리 */
 }

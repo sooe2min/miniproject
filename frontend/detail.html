@@ -6,6 +6,7 @@
     <title>상세 페이지</title>
     <link rel="stylesheet" href="style.css" />
     <link rel="stylesheet" href="debug.css" />
+    <link rel="stylesheet" href="./job-postings.css" />
   </head>
   <body>
     <div class="page-wrapper">
@@ -96,26 +97,37 @@
           <!-- 타이틀 바 (상단)
              [구조] 아이콘 + 타이틀 텍스트 가로 배치 -->
           <div class="job-postings-title-bar">
-            <!-- [팀원 가이드] 이 박스 내부에 섹션 아이콘과 타이틀 텍스트를 구현하세요.
-               예: <img 아이콘 /> + <h3>채용 공고</h3> -->
+            <img
+              src="./assets/icons/stay-at-home.png"
+              alt="채용 공고 아이콘"
+              class="sf-jp-title-icon"
+            />
+            <h3 class="sf-jp-title-text">채용 공고</h3>
           </div>
 
-          <!-- 공고 카드 리스트 (하단)
-             [구조] 공고 카드들을 가로로 나열하는 Flex 레이아웃 -->
-          <div class="job-postings-card-list">
-            <!-- 공고 카드 샘플 1 -->
-            <div class="job-posting-card-box">
-              <!-- [팀원 가이드] 이 박스 내부에 회사명, 공고 타이틀, 태그, 마감일 등을
-                 세로(flex-direction: column)로 자유롭게 구현하세요. -->
+          <!-- 슬라이더 영역
+             [구조] 이전 버튼(좌) + 카드 목록(중, overflow:hidden) + 다음 버튼(우) -->
+          <div class="sf-jp-slider-area">
+            <button class="sf-jp-arrow sf-jp-arrow--prev" id="sf-jp-arrow-prev" aria-label="이전 공고">
+              <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                <path d="M13 4L7 10L13 16" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+            </button>
+
+            <div class="sf-jp-slider-wrapper">
+              <!-- job-postings.js가 이 컨테이너에 카드를 동적으로 렌더링합니다 -->
+              <div class="job-postings-card-list" id="sf-jp-card-list"></div>
             </div>
 
-            <div class="job-posting-card-box"></div>
-            <div class="job-posting-card-box"></div>
-            <div class="job-posting-card-box"></div>
-
-            <!-- [팀원 가이드] 백엔드 데이터 연동 시 위의 .job-posting-card-box 틀을 사용하여
-               반복문(반복 렌더링)으로 채용 공고 목록을 동적으로 생성하세요. -->
+            <button class="sf-jp-arrow sf-jp-arrow--next" id="sf-jp-arrow-next" aria-label="다음 공고">
+              <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                <path d="M7 4L13 10L7 16" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+            </button>
           </div>
+
+          <!-- 페이지네이션 도트 — job-postings.js가 동적으로 생성 -->
+          <div class="sf-jp-pagination" id="sf-jp-pagination"></div>
         </section>
       </main>
 
@@ -137,5 +149,6 @@
         </div>
       </footer>
     </div>
+    <script src="./job-postings.js"></script>
   </body>
 </html>
