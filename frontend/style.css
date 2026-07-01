@@ -120,6 +120,17 @@ body {
   min-height: 32px;
 }
 
+.gnb-logo-area img {
+  height: 32px; /* GNB 높이에 맞춰 로고 세로 크기를 고정 */
+  width: auto; /* 가로는 원본 비율에 맞게 자동 조절 */
+}
+
+.gnb-service-name {
+  font-size: 14px; /* 로고보다 작게 보이도록 작은 글자 크기 */
+  font-weight: 700; /* 굵게 처리해 서비스명임을 강조 */
+  color: #191f28;
+}
+
 .gnb-breadcrumb-area {
   margin-left: auto; /* 나머지 공간을 밀어 자동으로 우측 끝에 위치 */
 }
