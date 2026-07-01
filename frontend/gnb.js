@@ -19,7 +19,6 @@ function gnbUpdateBreadcrumb() {
   const jobLabel = document.getElementById("gnb-bc-job");
   if (!jobLabel) return;
 
-  console.log(window.location.search);
   const careerId =
     new URLSearchParams(window.location.search).get("id") || "dev";
   jobLabel.textContent = GNB_CAREER_LABELS[careerId] ?? careerId;

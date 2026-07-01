@@ -7,6 +7,7 @@
     <link rel="stylesheet" href="style.css" />
     <link rel="stylesheet" href="debug.css" />
     <link rel="stylesheet" href="./job-postings.css" />
+    <link rel="stylesheet" href="./core-competencies.css" />
   </head>
   <body>
     <div class="page-wrapper">
@@ -50,6 +51,13 @@
               <!-- [팀원 가이드] 이 박스 내부에 사이드바 메뉴 항목들을
                  세로(flex-direction: column)로 나열하여 자유롭게 구현하세요.
                  예: 홈으로 / Administrator / Developer / Consultant / Power User -->
+              <!-- 아래는 job 쿼리스트링으로 직무를 전환하기 위한 최소 뼈대 링크입니다.
+                 아이콘/선택 상태 강조 등 나머지 꾸밈은 자유롭게 채워주세요. -->
+              <a href="index.html">← 홈으로</a>
+              <a href="detail.html?job=admin">Administrator</a>
+              <a href="detail.html?job=dev">Developer</a>
+              <a href="detail.html?job=consultant">Consultant</a>
+              <a href="detail.html?job=pu">Power User</a>
             </aside>
 
             <!-- Page Summary Box: "이 페이지에서" 요약 컴포넌트 -->
@@ -84,8 +92,53 @@
             <section class="mid-content-flex-layout">
               <!-- Left: 적합성 체크리스트 -->
               <div class="checklist-card-box">
-                <!-- [팀원 가이드] 이 박스는 적합성 체크리스트 컴포넌트 영역입니다.
-                   내부 레이아웃 방향(column/row)은 팀원이 자유롭게 결정하세요. -->
+                <!-- 핵심 역량 스텟 컴포넌트 (core-competencies.css / core-competencies.js)
+                     직무(job) 쿼리스트링이 바뀔 때마다 db.json의 careers[].skills를 새로 fetch해서 렌더링함 -->
+                <div class="stat-card">
+                  <!-- 헤더 -->
+                  <div class="stat-header">
+                    <span class="stat-title">핵심 역량 스텟</span>
+                    <span class="stat-subtitle">(6개 중 선택)</span>
+                  </div>
+
+                  <!-- 체크박스 목록 (core-competencies.js가 db.json을 fetch해 동적으로 채움) -->
+                  <div class="stat-list" id="cc-stat-list"></div>
+
+                  <!-- 결과 섹션 -->
+                  <div class="result-section">
+                    <p class="result-label">직합성 검사 결과</p>
+                    <div class="result-body">
+                      <!-- 원형 진행 차트 -->
+                      <div class="progress-ring">
+                        <svg viewBox="0 0 100 100" class="ring-svg">
+                          <circle class="ring-track" cx="50" cy="50" r="38" />
+                          <circle
+                            class="ring-fill"
+                            cx="50"
+                            cy="50"
+                            r="38"
+                            id="cc-ring-progress"
+                          />
+                        </svg>
+                        <span class="ring-pct" id="cc-ring-pct">0%</span>
+                      </div>
+
+                      <!-- 결과 텍스트 -->
+                      <div class="result-info">
+                        <p class="result-selected" id="cc-result-selected">
+                          6개 중 0개를 선택했어요!
+                        </p>
+                        <p class="result-desc" id="cc-result-desc">
+                          직무에 적합하지 않을 수 있어요.
+                        </p>
+                        <p class="result-tip">
+                          <span class="tip-label">TIP</span> 5개 이상 선택하면
+                          만점으로 판단해요.
+                        </p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
               </div>
 
               <!-- Right: 추천 자격증 로드맵 -->
@@ -205,5 +258,6 @@
     </div>
     <script src="./gnb.js"></script>
     <script src="./job-postings.js"></script>
+    <script src="./core-competencies.js"></script>
   </body>
 </html>
