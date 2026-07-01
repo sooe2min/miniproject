@@ -7,6 +7,7 @@
     <link rel="stylesheet" href="style.css" />
     <link rel="stylesheet" href="debug.css" />
     <link rel="stylesheet" href="./job-postings.css" />
+    <link rel="stylesheet" href="./page-summary-box.css" />
   </head>
   <body>
     <div class="page-wrapper">
@@ -52,11 +53,43 @@
                  예: 홈으로 / Administrator / Developer / Consultant / Power User -->
             </aside>
 
-            <!-- Page Summary Box: "이 페이지에서" 요약 컴포넌트 -->
+            <!-- Page Summary Box: "이 페이지에서" 요약 — 모든 직무 공통 항목 -->
             <div class="page-summary-box">
-              <!-- [팀원 가이드] 이 박스 내부에 현재 페이지에서 확인할 수 있는
-                 항목 목록(예: 핵심 역량 스텟, 적합성 검사 결과, 추천 자격증 로드맵, 채용 공고)을
-                 세로(flex-direction: column)로 자유롭게 구현하세요. -->
+              <p class="summary-title">이 페이지에서</p>
+              <ul class="summary-list">
+                <li class="summary-item">
+                  <span class="summary-item-icon">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                      <line x1="18" y1="20" x2="18" y2="10"/><line x1="12" y1="20" x2="12" y2="4"/><line x1="6" y1="20" x2="6" y2="14"/>
+                    </svg>
+                  </span>
+                  <span class="summary-item-label">핵심 역량 스탯</span>
+                </li>
+                <li class="summary-item">
+                  <span class="summary-item-icon">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                      <path d="M9 11l3 3L22 4"/><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/>
+                    </svg>
+                  </span>
+                  <span class="summary-item-label">적합성 검사 결과</span>
+                </li>
+                <li class="summary-item">
+                  <span class="summary-item-icon">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                      <circle cx="12" cy="12" r="10"/><polygon points="16.24 7.76 14.12 14.12 7.76 16.24 9.88 9.88 16.24 7.76"/>
+                    </svg>
+                  </span>
+                  <span class="summary-item-label">추천 자격증 로드맵</span>
+                </li>
+                <li class="summary-item">
+                  <span class="summary-item-icon">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                      <rect x="2" y="7" width="20" height="14" rx="2" ry="2"/><path d="M16 7V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v2"/>
+                    </svg>
+                  </span>
+                  <span class="summary-item-label">채용 공고</span>
+                </li>
+              </ul>
             </div>
           </div>
 

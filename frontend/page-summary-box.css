@@ -1,0 +1,46 @@
+/* ============================================================
+   page-summary-box.css — "이 페이지에서" 요약 박스 컴포넌트
+   모든 직무 상세 페이지에 동일하게 표시되는 항목 목록
+   ============================================================ */
+
+/* 박스 내부 제목 */
+.summary-title {
+  font-size: var(--text-xs);
+  font-weight: var(--font-semibold);
+  color: var(--color-subtext);
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  padding-bottom: var(--space-3);
+  border-bottom: 1px solid var(--color-border);
+  margin-bottom: var(--space-1);
+}
+
+/* 항목 목록 */
+.summary-list {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-1);
+}
+
+/* 항목 행 — 아이콘 + 텍스트 가로 배치 */
+.summary-item {
+  display: flex;
+  align-items: center;
+  gap: var(--space-3);
+  padding: var(--space-2) var(--space-4);
+  border-radius: var(--radius-md);
+  font-size: var(--text-sm);
+  color: var(--color-gray-700);
+}
+
+/* 항목 아이콘 */
+.summary-item-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 18px;
+  height: 18px;
+  flex-shrink: 0;
+  color: var(--color-primary);
+}
