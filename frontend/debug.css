@@ -27,11 +27,11 @@
 .detail-header-illust-area,
 .mid-content-flex-layout,
 .checklist-card-box,
-.roadmap-card-box,
-.job-postings-section,
-.job-postings-title-bar,
-.job-postings-card-list,
-.job-posting-card-box {
+.roadmap-card-box {
   outline: 2px solid red !important;
   outline-offset: -1px;
 }
+/* .job-postings-section,
+.job-postings-title-bar,
+.job-postings-card-list 
+.job-posting-card-box  */
