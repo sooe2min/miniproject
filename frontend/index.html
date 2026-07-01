@@ -6,6 +6,7 @@
     <title>메인 페이지</title>
     <link rel="stylesheet" href="style.css" />
     <link rel="stylesheet" href="form-container-box.css" />
+    <link rel="stylesheet" href="job-card-container.css" />
     <link rel="stylesheet" href="debug.css" />
   </head>
   <body>
@@ -32,6 +33,11 @@
         <!-- 1. Hero Section
            [구조] 중앙 정렬된 배너 박스 틀 -->
         <section class="hero-section-box">
+          <h1>내게 맞는 세일즈포스 직무 제안</h1>
+          <p>
+            세일즈포스의 다양한 직무를 탐색하고, 나에게 맞는 커리어를
+            찾아보세요.
+          </p>
           <!-- [팀원 가이드] 이 박스 내부에 서비스 메인 타이틀과 설명 문구를
              세로(flex-direction: column)로, 텍스트 중앙 정렬로 구현하세요.
              예: <h1>, <p> -->
@@ -44,10 +50,12 @@
                태그 영역, 상세 버튼을 세로(flex-direction: column)로
                자유롭게 구현하세요. -->
           <!-- Job Card 샘플 -->
-          <div class="job-card-box"></div>
-          <div class="job-card-box"></div>
-          <div class="job-card-box"></div>
-          <div class="job-card-box"></div>
+          <div class="job-card-box" id="admin">
+            <img src="" />
+          </div>
+          <div class="job-card-box" id="dev"></div>
+          <div class="job-card-box" id="consultant"></div>
+          <div class="job-card-box" id="pu"></div>
         </section>
 
         <!-- 3. Bottom Layout — 좌(폼) / 우(방명록) 가로 분할 틀 -->
@@ -100,5 +108,6 @@
       </footer>
     </div>
     <script src="form-container-box.js"></script>
+    <script src="job-card-container.js"></script>
   </body>
 </html>

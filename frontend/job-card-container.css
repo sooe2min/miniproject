@@ -1,0 +1,72 @@
+/* ============================================================
+   job-card-container.css — 직무 카드 4개 내부 스타일
+   ============================================================ */
+
+:root {
+  --sfjc-primary-color: #00a1e0; /* 세일즈포스 블루 (메인 포인트 컬러) */
+  --sfjc-text-color: #191f28; /* 기본 텍스트 색상 */
+  --sfjc-oneliner-color: #6b7684; /* 한 줄 소개용 회색 텍스트 */
+  --sfjc-tag-bg: #e0f4fc; /* 태그 배지 배경 (포인트 컬러의 연한 버전) */
+}
+
+/* 캐릭터 이미지 */
+.sf-jc-image {
+  width: 100%;
+  aspect-ratio: 1 / 1; /* 정사각형 비율 유지 */
+  object-fit: contain; /* 이미지 비율을 유지한 채 박스 안에 맞춤 */
+  border-radius: 12px;
+  margin-bottom: 16px; /* 아래 타이틀과의 간격 */
+}
+
+/* 직무 타이틀 */
+.sf-jc-title {
+  font-size: 17px;
+  font-weight: 700; /* 굵게 처리해 시선 집중 */
+  color: var(--sfjc-text-color);
+  text-align: center; /* 카드 가운데 정렬 */
+  margin-bottom: 6px; /* 아래 한 줄 소개와의 간격 */
+}
+
+/* 한 줄 소개 */
+.sf-jc-oneliner {
+  font-size: 13px;
+  color: var(--sfjc-oneliner-color);
+  text-align: center;
+  margin-bottom: 12px; /* 아래 태그 영역과의 간격 */
+}
+
+/* 태그 영역 — 여러 태그를 가로로 나열 */
+.sf-jc-tags {
+  display: flex; /* 태그들을 가로로 나열 */
+  flex-wrap: wrap; /* 공간이 부족하면 다음 줄로 넘김 */
+  justify-content: center; /* 태그를 가운데 정렬 */
+  gap: 6px;
+  margin-bottom: 20px; /* 아래 버튼과의 간격 */
+}
+
+/* 태그 배지 하나 */
+.sf-jc-tag {
+  padding: 4px 10px;
+  border-radius: 999px; /* 완전히 둥근 배지 모양 */
+  background-color: var(--sfjc-tag-bg);
+  color: var(--sfjc-primary-color);
+  font-size: 12px;
+  font-weight: 600;
+}
+
+/* 상세 페이지 보기 버튼 */
+.sf-jc-detail-btn {
+  margin-top: auto; /* 부모(job-card-box)가 flex column이라 버튼을 항상 하단에 고정 */
+  padding: 10px;
+  border-radius: 10px;
+  background-color: var(--sfjc-primary-color);
+  color: #ffffff;
+  font-size: 14px;
+  font-weight: 600;
+  text-align: center;
+  text-decoration: none; /* 링크 밑줄 제거 */
+}
+
+.sf-jc-detail-btn:hover {
+  background-color: #0087bd; /* hover 시 살짝 어두운 블루로 반응 표시 */
+}
