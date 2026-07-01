@@ -1,6 +1,10 @@
 // json-server가 떠 있는 로컬 서버 주소
 const API = "http://localhost:3000";
 
+// 이메일 발송을 담당하는 Google Apps Script 배포 URL
+const SCRIPT_URL =
+  "https://script.google.com/macros/s/AKfycbzUvmH8kDtkfKg1K5ERkchIsQ5tz6on2DMpdngSlHMWyQ7yOIM5ieuDqWmei3zPg5QIKA/exec";
+
 function sfFormRender() {
   const formContainer = document.querySelector(".form-container-box");
 
@@ -106,6 +110,28 @@ async function sfFormSubmitData(data) {
     if (!postResponse.ok) {
       throw new Error("서버 등록에 실패했습니다.");
     }
+
+    // 4. 관심 직무의 상세 정보(설명, 역량, 자격증, 채용 공고)를 db.json에서 조회
+    const careerResponse = await fetch(
+      `${API}/careers/${data.interested_career}`,
+    );
+    const career = await careerResponse.json();
+
+    // 5. 이름/이메일 + career 상세 정보를 합쳐서 Apps Script로 전송 (메일 발송 트리거)
+    await fetch(SCRIPT_URL, {
+      method: "POST",
+      headers: { "Content-Type": "text/plain;charset=utf-8" }, // CORS preflight 회피용
+      body: JSON.stringify({
+        name: data.name,
+        email: data.email,
+        career_title: career.title,
+        career_description: career.description,
+        career_skills: career.skills,
+        career_certifications: career.certifications,
+        career_job_postings: career.job_postings,
+      }),
+      mode: "no-cors", // 응답은 못 읽지만 요청은 정상 실행됨
+    });
 
     alert("신청이 완료되었습니다! 이메일 발송 예정입니다.");
   } catch (error) {
