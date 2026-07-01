@@ -1,238 +1,196 @@
-/* ===== 핵심 역량 스텟 카드 ===== */
+/* ============================================================
+   core-competencies.css — 핵심 역량 스텟 카드 내부 스타일
+   (checklist-card-box 내부에 자바스크립트로 렌더링되는 요소들의 스타일)
+   디자인 토큰: style.css의 :root 변수를 공유하여 사용
+   ============================================================ */
 
-/* ── 색상 및 테마 변수 (전체 컴포넌트 색상은 여기서만 관리) ── */
-:root {
-	--cc-primary: #00a1e0; /* 세일즈포스 블루 – 메인 포인트 컬러 */
-	--cc-primary-light: #e6f6fd; /* 포인트 컬러 연한 배경 */
-	--cc-primary-track: #c2e8f7; /* 원형 차트 트랙 색상 */
-	--cc-bg-page: #eef0f5; /* 페이지 배경 */
-	--cc-bg-card: #ffffff; /* 카드 배경 */
-	--cc-bg-result: #f4f7ff; /* 결과 섹션 배경 */
-	--cc-border: #e4e4e4; /* 카드 테두리 */
-	--cc-border-list: #f0f0f0; /* 목록 구분선 */
-	--cc-text-primary: #1a1a1a; /* 본문 기본 텍스트 */
-	--cc-text-heading: #111111; /* 제목 텍스트 */
-	--cc-text-muted: #777777; /* 미선택 항목 텍스트 */
-	--cc-text-sub: #999999; /* 부제목/보조 텍스트 */
-	--cc-text-desc: #555555; /* 결과 설명 텍스트 */
-	--cc-check-border: #cacaca; /* 미선택 체크박스 테두리 */
-	--cc-hover-bg: #f5f8ff; /* 항목 호버 배경 */
-}
-
-*,
-*::before,
-*::after {
-	box-sizing: border-box;
-	margin: 0;
-	padding: 0;
-}
-
-/* body 전체 레이아웃은 건드리지 않음 (detail.html 등 다른 페이지에도 이 CSS를 함께 불러오므로,
-   페이지 전체를 중앙 정렬하는 스타일은 이 파일이 아니라 각 페이지 자체 CSS에서 관리해야 함) */
-
-/* ── 카드 ── */
+/* ── 카드 래퍼 — checklist-card-box가 외부 컨테이너이므로 자체 배경/테두리 없음 ── */
 .stat-card {
-	/* 이 컴포넌트가 어느 페이지에 들어가도 동일한 글꼴로 보이도록 폰트를 카드 자체에 지정 */
-	font-family:
-		-apple-system, BlinkMacSystemFont, "Noto Sans KR", "Apple SD Gothic Neo",
-		"Malgun Gothic", sans-serif;
-	color: var(--cc-text-primary);
-	background: var(--cc-bg-card);
-	border-radius: 16px;
-	box-shadow: 0 4px 24px rgba(0, 0, 0, 0.1);
-	width: 100%;
-	max-width: 400px;
-	overflow: hidden;
-	border: 1px solid var(--cc-border);
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  flex: 1;
 }
 
 /* ── 헤더 ── */
 .stat-header {
-	padding: 18px 18px 16px;
-	display: flex; /* 제목과 부제목을 가로로 나란히 배치 */
-	align-items: baseline; /* 텍스트 기준선 정렬 */
-	gap: 6px;
+  padding: var(--space-5) var(--space-5) var(--space-4);
+  display: flex;
+  align-items: baseline;
+  gap: var(--space-2);
 }
 
 .stat-title {
-	font-size: 0.97rem;
-	font-weight: 700;
-	color: var(--cc-text-heading);
-	letter-spacing: -0.01em;
+  font-size: var(--text-lg);
+  font-weight: var(--font-bold);
+  color: var(--color-text);
+  letter-spacing: -0.01em;
 }
 
 .stat-subtitle {
-	font-size: 0.78rem;
-	color: var(--cc-text-sub);
+  font-size: var(--text-xs);
+  color: var(--color-subtext);
 }
 
 /* ── 체크박스 목록 ── */
 .stat-list {
-	border-top: 1px solid var(--cc-border-list);
-	border-bottom: 1px solid var(--cc-border-list);
+  flex: 1;
+  border-top: 1px solid var(--color-border);
+  border-bottom: 1px solid var(--color-border);
 }
 
 .stat-item {
-	display: flex; /* 체크박스와 텍스트를 가로로 나란히 배치 */
-	align-items: flex-start; /* 텍스트가 길어져도 체크박스는 위에 고정 */
-	gap: 10px;
-	padding: 11px 18px;
-	cursor: pointer;
-	user-select: none;
-	transition: background 0.12s;
+  display: flex;
+  align-items: flex-start;
+  gap: var(--space-3);
+  padding: var(--space-3) var(--space-5);
+  cursor: pointer;
+  user-select: none;
+  transition: background 0.12s;
 }
 
 .stat-item + .stat-item {
-	border-top: 1px solid var(--cc-border-list);
+  border-top: 1px solid var(--color-border);
 }
 
 .stat-item:hover {
-	background: var(--cc-hover-bg);
+  background: var(--color-gray-50);
 }
 
 /* 커스텀 체크박스 */
 .check-box {
-	position: relative; /* ::after 가상요소(V자 체크)의 기준점으로 사용 */
-	flex-shrink: 0; /* 체크박스가 텍스트에 의해 줄어들지 않도록 고정 */
-	width: 18px;
-	height: 18px;
-	border: 2px solid var(--cc-check-border);
-	border-radius: 4px;
-	margin-top: 2px;
-	background: var(--cc-bg-card);
-	transition:
-		background 0.15s,
-		border-color 0.15s;
+  position: relative;
+  flex-shrink: 0;
+  width: 18px;
+  height: 18px;
+  border: 2px solid var(--color-gray-400);
+  border-radius: var(--radius-sm);
+  margin-top: 2px;
+  background: var(--color-surface);
+  transition:
+    background 0.15s,
+    border-color 0.15s;
 }
 
 .stat-item.is-checked .check-box {
-	background: var(--cc-primary);
-	border-color: var(--cc-primary);
+  background: var(--color-primary);
+  border-color: var(--color-primary);
 }
 
 /* 체크 표시 (흰 V자) */
 .stat-item.is-checked .check-box::after {
-	content: "";
-	position: absolute; /* 부모 .check-box 기준으로 V자 위치 지정 */
-	top: 1px;
-	left: 4px;
-	width: 5px;
-	height: 9px;
-	border: 2px solid #fff;
-	border-top: none;
-	border-left: none;
-	transform: rotate(45deg);
+  content: "";
+  position: absolute;
+  top: 1px;
+  left: 4px;
+  width: 5px;
+  height: 9px;
+  border: 2px solid #fff;
+  border-top: none;
+  border-left: none;
+  transform: rotate(45deg);
 }
 
 .item-text {
-	font-size: 0.82rem;
-	color: var(--cc-text-muted);
-	line-height: 1.55;
-	transition: color 0.12s;
+  font-size: var(--text-sm);
+  color: var(--color-subtext);
+  line-height: 1.55;
+  transition: color 0.12s;
 }
 
 .stat-item.is-checked .item-text {
-	color: var(--cc-text-primary);
+  color: var(--color-text);
 }
 
 /* ── 결과 섹션 ── */
 .result-section {
-	padding: 16px 18px 22px;
-	background: var(--cc-bg-result);
+  padding: var(--space-4) var(--space-5) var(--space-5);
+  background: var(--color-primary-light);
 }
 
 .result-label {
-	font-size: 0.88rem;
-	font-weight: 700;
-	color: #222;
-	margin-bottom: 14px;
+  font-size: var(--text-lg);
+  font-weight: var(--font-bold);
+  color: var(--color-text);
+  margin-bottom: var(--space-3);
 }
 
 .result-body {
-	display: flex; /* 원형 차트와 텍스트를 가로로 나란히 배치 */
-	align-items: center; /* 세로 중앙 정렬 */
-	gap: 16px;
+  display: flex;
+  align-items: center;
+  gap: var(--space-4);
 }
 
 /* 원형 차트 */
 .progress-ring {
-	position: relative; /* 퍼센트 숫자(.ring-pct)를 원 중앙에 겹치기 위한 기준점 */
-	width: 82px;
-	height: 82px;
-	flex-shrink: 0; /* 텍스트 영역이 넓어져도 차트 크기는 고정 */
+  position: relative;
+  width: 82px;
+  height: 82px;
+  flex-shrink: 0;
 }
 
 .ring-svg {
-	width: 82px;
-	height: 82px;
-	transform: rotate(
-		-90deg
-	); /* SVG 기본 시작점(3시 방향)을 12시 방향으로 회전 */
+  width: 82px;
+  height: 82px;
+  transform: rotate(-90deg);
 }
 
 .ring-track {
-	fill: none;
-	stroke: var(--cc-primary-track);
-	stroke-width: 10;
+  fill: none;
+  stroke: var(--color-gray-200);
+  stroke-width: 10;
 }
 
 .ring-fill {
-	fill: none;
-	stroke: var(--cc-primary);
-	stroke-width: 10;
-	stroke-linecap: round;
-	stroke-dasharray: 238.76;
-	stroke-dashoffset: 102.67; /* 초기: 57% */
-	transition: stroke-dashoffset 0.45s ease;
+  fill: none;
+  stroke: var(--color-primary);
+  stroke-width: 10;
+  stroke-linecap: round;
+  stroke-dasharray: 238.76;
+  stroke-dashoffset: 238.76;
+  transition: stroke-dashoffset 0.45s ease;
 }
 
 .ring-pct {
-	position: absolute; /* 부모 .progress-ring 기준으로 원 중앙에 고정 */
-	top: 50%;
-	left: 50%;
-	transform: translate(-50%, -50%); /* 정확한 중앙 정렬 */
-	font-size: 1rem;
-	font-weight: 700;
-	color: #222;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: var(--text-base);
+  font-weight: var(--font-bold);
+  color: var(--color-text);
 }
 
 /* 결과 텍스트 */
 .result-info {
-	flex: 1; /* 남은 가로 공간을 모두 차지 */
-	min-width: 0; /* flex 자식이 텍스트 오버플로우 없이 줄어들 수 있도록 허용 */
+  flex: 1;
+  min-width: 0;
 }
 
 .result-selected {
-	font-size: 0.9rem;
-	font-weight: 700;
-	color: var(--cc-text-heading);
-	margin-bottom: 4px;
+  font-size: var(--text-lg);
+  font-weight: var(--font-bold);
+  color: var(--color-text);
+  margin-bottom: var(--space-1);
 }
 
 .result-desc {
-	font-size: 0.79rem;
-	color: var(--cc-text-desc);
-	line-height: 1.5;
-	margin-bottom: 10px;
+  font-size: var(--text-base);
+  color: var(--color-subtext);
+  line-height: 1.5;
+  margin-bottom: var(--space-2);
 }
 
 .result-tip {
-	font-size: 0.74rem;
-	color: #666;
-	line-height: 1.5;
-	background: var(--cc-primary-light);
-	border-radius: 7px;
-	padding: 6px 10px;
+  font-size: var(--text-sm);
+  color: var(--color-subtext);
+  line-height: 1.5;
+  background: var(--color-primary-light);
+  border-radius: var(--radius-sm);
+  padding: var(--space-1) var(--space-2);
 }
 
 .tip-label {
-	font-weight: 700;
-	color: var(--cc-primary);
-}
-
-/* ── 반응형 ── */
-@media (max-width: 440px) {
-	.stat-card {
-		border-radius: 12px;
-	}
+  font-weight: var(--font-bold);
+  color: var(--color-primary);
 }

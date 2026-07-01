@@ -1,0 +1,90 @@
+/* ============================================================
+   roadmap-card.css — 추천 자격증 로드맵 카드 내부 스타일
+   (roadmap-card-box 내부에 자바스크립트로 렌더링되는 요소들의 스타일)
+   디자인 토큰: style.css의 :root 변수를 공유하여 사용
+   ============================================================ */
+
+/* 카드 타이틀 */
+.sf-rm-title-text {
+  font-size: var(--text-xl);
+  font-weight: var(--font-bold);
+  color: var(--color-text);
+  margin-bottom: var(--space-1);
+  letter-spacing: -0.01em;
+}
+
+/* 카드 부제목 — 타이틀 바로 밑 안내 문구 */
+.sf-rm-subtitle-text {
+  font-size: var(--text-xs);
+  color: var(--color-subtext);
+  margin-bottom: var(--space-5);
+}
+
+/* 로드맵 스텝 리스트 — 배지가 세로로 이어지는 리스트 */
+.sf-rm-step-list {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-3);
+  list-style: none;
+}
+
+/* 스텝 아이템 하나 — 배지(좌) + 자격증명 박스(우) 가로 배치 */
+.sf-rm-step-item {
+  display: flex;
+  align-items: center;
+  gap: var(--space-3);
+}
+
+/* 순번 배지 (원형) */
+.sf-rm-step-badge {
+  flex-shrink: 0;
+  width: 32px;
+  height: 32px;
+  border-radius: var(--radius-full);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: var(--color-primary);
+  color: #ffffff;
+  font-size: var(--text-sm);
+  font-weight: var(--font-bold);
+  z-index: 1;
+}
+
+/* 단계가 깊어질수록 진한 세일즈포스 블루로 변하는 그라데이션 */
+.sf-rm-step-badge.sf-rm-step-2,
+.sf-rm-step-badge.sf-rm-step-3 {
+  background-color: #0176d3;
+}
+
+.sf-rm-step-badge.sf-rm-step-4 {
+  background-color: #032d60;
+}
+
+/* 자격증명 박스 */
+.sf-rm-step-title {
+  flex: 1;
+  padding: var(--space-3) var(--space-4);
+  border-radius: var(--radius-md);
+  background-color: var(--color-primary-light);
+  font-size: var(--text-sm);
+  font-weight: var(--font-semibold);
+  color: var(--color-text);
+}
+
+.sf-rm-step-title.sf-rm-step-2,
+.sf-rm-step-title.sf-rm-step-3 {
+  background-color: #e6f3fb;
+}
+
+.sf-rm-step-title.sf-rm-step-4 {
+  background-color: #e8eef8;
+}
+
+/* 로딩 중 / 에러 발생 시 보여줄 안내 문구 */
+.sf-rm-status-text {
+  font-size: var(--text-sm);
+  color: var(--color-subtext);
+  text-align: center;
+  padding: var(--space-5) 0;
+}

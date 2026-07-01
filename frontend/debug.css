@@ -11,21 +11,20 @@
 .guestbook-input-area,
 .guestbook-list-area,
 .guestbook-item-box, */
-.detail-main-splitter,
+/* .detail-main-splitter, */
 .left-column-wrapper,
 .left-sidebar-box,
-.page-summary-box,
-.right-main-content,
-.detail-header-section,
-.detail-header-text-area,
-.detail-header-illust-area,
-.mid-content-flex-layout,
-.checklist-card-box,
-.roadmap-card-box {
+.page-summary-box {
   outline: 2px solid red !important;
   outline-offset: -1px;
 }
-
+/* .right-main-content, */
+/* .detail-header-section,
+.detail-header-text-area,
+.detail-header-illust-area, */
+/* .mid-content-flex-layout,
+.checklist-card-box,
+.roadmap-card-box */
 /* .gnb-logo-area,
 gnb-logo-area
 .gnb-service-name,

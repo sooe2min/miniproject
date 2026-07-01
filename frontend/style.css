@@ -10,7 +10,8 @@
 :root {
   /* 브랜드 컬러 */
   --color-primary: #00a1e0; /* 세일즈포스 블루 (포인트 컬러) */
-  --color-primary-light: #e0f4fc; /* 포인트 연한 버전 (배지·hover용) */
+  /* --color-primary-light: rgb(218, 241, 250); 포인트 연한 버전 (배지·hover용) */
+  --color-primary-light: #ecf2fc; /* 포인트 연한 버전 (배지·hover용) */
 
   /* 그레이 스케일 (Tailwind 기반) */
   --color-gray-50: #f9fafb;
@@ -95,7 +96,7 @@ body {
 
 .main-content {
   flex: 1; /* 남은 세로 공간을 채워 푸터를 하단에 밀어둠 */
-  padding: var(--space-10) var(--space-12);
+  padding: var(--space-5) var(--space-12);
   display: flex; /* 내부 섹션들을 세로로 쌓기 위한 flex 설정 */
   flex-direction: column; /* 섹션을 위→아래 방향으로 나열 */
   gap: var(--space-8);
@@ -239,7 +240,7 @@ body {
   flex-direction: column; /* 타이틀과 설명문을 위→아래로 배치 */
   align-items: center; /* 수평 방향 중앙 정렬 */
   justify-content: center; /* 수직 방향 중앙 정렬 */
-  padding: var(--space-6) var(--space-12); /* 세로 패딩을 줄여 박스 높이를 낮춤 */
+  padding: var(--space-1) var(--space-12); /* 세로 패딩을 줄여 박스 높이를 낮춤 */
   border-radius: var(--radius-xl);
 }
 
@@ -375,22 +376,26 @@ body {
 .detail-header-section {
   display: flex; /* 텍스트 영역과 일러스트 영역을 가로로 나란히 배치 */
   justify-content: space-between; /* 텍스트(좌)와 일러스트(우)를 양 끝으로 밀어 정렬 */
-  align-items: center; /* 수직 방향 중앙 정렬 */
-  min-height: 200px;
-  padding: var(--space-10);
-  background-color: var(--color-surface);
+  align-items: stretch; /* 두 영역이 섹션 전체 높이를 채우도록 */
+  max-height: 300px;
+  padding: var(--space-8) 0 var(--space-8) var(--space-8); /* 우측 패딩 제거 — 일러스트 배경이 끝까지 채움 */
+  background-color: var(--color-primary-light);
   border-radius: var(--radius-lg);
   box-shadow: var(--shadow-md);
+  overflow: hidden; /* 일러스트 배경이 border-radius에 맞게 clip */
 }
 
 .detail-header-text-area {
   flex: 1; /* 텍스트 영역이 남은 가로 공간을 차지 */
+  display: flex; /* 내부 요소들을 세로로 쌓기 위한 flex 설정 */
+  flex-direction: column;
+  justify-content: center; /* 텍스트를 세로 중앙에 배치 */
+  padding-right: var(--space-8); /* 텍스트와 일러스트 사이 여백 */
 }
 
 .detail-header-illust-area {
   flex-shrink: 0; /* 일러스트 영역이 줄어들지 않도록 고정 */
-  width: 200px;
-  min-height: 160px;
+  width: 280px;
 }
 
 /* ----------------------------------------------------------
@@ -399,7 +404,7 @@ body {
 .mid-content-flex-layout {
   display: flex; /* 두 카드를 가로로 나란히 배치 */
   gap: var(--space-5);
-  align-items: flex-start; /* 카드들의 상단 기준으로 정렬 */
+  align-items: stretch; /* 두 카드가 동일한 높이를 가지도록 */
 }
 
 .checklist-card-box,
@@ -407,11 +412,18 @@ body {
   display: flex; /* 카드 내부 요소들을 세로로 쌓기 위한 flex 설정 */
   flex-direction: column; /* 카드 내부 콘텐츠를 위→아래로 배치 */
   flex: 1; /* 두 카드가 동일한 너비를 가지도록 균등 분배 */
-  min-height: 280px;
-  padding: var(--space-7);
   background-color: var(--color-surface);
   border-radius: var(--radius-lg);
   box-shadow: var(--shadow-md);
+  overflow: hidden;
+}
+
+.checklist-card-box {
+  padding: 0; /* stat-card가 내부 패딩을 자체 관리 */
+}
+
+.roadmap-card-box {
+  padding: var(--space-7);
 }
 
 /* ----------------------------------------------------------

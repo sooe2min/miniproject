@@ -18,7 +18,7 @@ let sfJpCurrentIndex = 0;
 
 function sfJpGetCareerId() {
   const params = new URLSearchParams(window.location.search);
-  return params.get('career') || 'dev';
+  return params.get('id') || 'dev';
 }
 
 
