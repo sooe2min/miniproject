@@ -116,7 +116,9 @@ body {
 }
 
 .gnb-logo-area {
-  display: flex; /* 로고 영역 내부 요소들을 가로로 나란히 배치 */
+  display: flex; /* 내부 이미지 크기에 딱 맞게 박스를 감싸기 위한 flex 설정 */
+  width: fit-content; /* 이미지 실제 너비만큼만 박스 너비 차지 */
+  min-height: 32px;
 }
 
 .gnb-logo-area img {
@@ -170,11 +172,13 @@ body {
   flex-direction: column; /* 타이틀과 설명문을 위→아래로 배치 */
   align-items: center; /* 수평 방향 중앙 정렬 */
   justify-content: center; /* 수직 방향 중앙 정렬 */
-  min-height: 300px;
-  padding: var(--space-12);
-  background-color: var(--color-surface);
+  padding: var(--space-6) var(--space-12); /* 세로 패딩을 줄여 박스 높이를 낮춤 */
+  background-color: var(--color-bg); /* 가장 뒤 페이지 배경색과 동일하게 맞춰 경계를 없앰 */
   border-radius: var(--radius-xl);
-  box-shadow: var(--shadow-md);
+}
+
+.hero-section-box p {
+  color: var(--color-subtext); /* 설명 문구는 보조 텍스트 색상으로 톤 다운 */
 }
 
 /* ----------------------------------------------------------
