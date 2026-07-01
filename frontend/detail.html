@@ -1,141 +1,147 @@
 <!doctype html>
 <html lang="ko">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>상세 페이지</title>
-    <link rel="stylesheet" href="style.css" />
-    <link rel="stylesheet" href="debug.css" />
-  </head>
-  <body>
-    <div class="page-wrapper">
-      <!-- ================================================
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>상세 페이지</title>
+		<link rel="stylesheet" href="style.css" />
+		<link rel="stylesheet" href="job-header.css" />
+		<link rel="stylesheet" href="job-illust.css" />
+		<link rel="stylesheet" href="roadmap-card.css" />
+		<link rel="stylesheet" href="debug.css" />
+	</head>
+	<body>
+		<div class="page-wrapper">
+			<!-- ================================================
          GNB — 글로벌 내비게이션 바
          [구조] 로고(좌) + 경로 표시(우측 끝, margin-left:auto로 밀림)
          ================================================ -->
-      <header>
-        <nav class="gnb-container">
-          <div class="gnb-logo-area">
-            <!-- [팀원 가이드] 이 박스 내부에 로고 이미지(<img>)를 구현하세요. -->
-          </div>
+			<header>
+				<nav class="gnb-container">
+					<div class="gnb-logo-area">
+						<!-- [팀원 가이드] 이 박스 내부에 로고 이미지(<img>)를 구현하세요. -->
+					</div>
 
-          <div class="gnb-breadcrumb-area">
-            <!-- [팀원 가이드] 이 박스 내부에 현재 경로(예: 홈 → Developer)를 구현하세요. -->
-          </div>
-        </nav>
-      </header>
+					<div class="gnb-breadcrumb-area">
+						<!-- [팀원 가이드] 이 박스 내부에 현재 경로(예: 홈 → Developer)를 구현하세요. -->
+					</div>
+				</nav>
+			</header>
 
-      <!-- ================================================
+			<!-- ================================================
          메인 콘텐츠 영역
          ================================================ -->
-      <main class="main-content">
-        <!-- Detail Main Splitter
+			<main class="main-content">
+				<!-- Detail Main Splitter
            [구조] 좌측 사이드바(1) : 우측 메인 콘텐츠(3) — 1:3 비율 가로 분할 -->
-        <div class="detail-main-splitter">
-          <!-- ============================================
+				<div class="detail-main-splitter">
+					<!-- ============================================
              Left Column — 사이드바 + "이 페이지에서" 박스를 세로로 묶는 래퍼
              ============================================ -->
-          <div class="left-column-wrapper">
-            <!-- Left Sidebar: 직무 선택 메뉴 목록 -->
-            <aside class="left-sidebar-box">
-              <!-- [팀원 가이드] 이 박스 내부에 사이드바 메뉴 항목들을
+					<div class="left-column-wrapper">
+						<!-- Left Sidebar: 직무 선택 메뉴 목록 -->
+						<aside class="left-sidebar-box">
+							<!-- [팀원 가이드] 이 박스 내부에 사이드바 메뉴 항목들을
                  세로(flex-direction: column)로 나열하여 자유롭게 구현하세요.
                  예: 홈으로 / Administrator / Developer / Consultant / Power User -->
-            </aside>
+						</aside>
 
-            <!-- Page Summary Box: "이 페이지에서" 요약 컴포넌트 -->
-            <div class="page-summary-box">
-              <!-- [팀원 가이드] 이 박스 내부에 현재 페이지에서 확인할 수 있는
+						<!-- Page Summary Box: "이 페이지에서" 요약 컴포넌트 -->
+						<div class="page-summary-box">
+							<!-- [팀원 가이드] 이 박스 내부에 현재 페이지에서 확인할 수 있는
                  항목 목록(예: 핵심 역량 스텟, 적합성 검사 결과, 추천 자격증 로드맵, 채용 공고)을
                  세로(flex-direction: column)로 자유롭게 구현하세요. -->
-            </div>
-          </div>
+						</div>
+					</div>
 
-          <!-- ============================================
+					<!-- ============================================
              Right Main Content
              [구조] 2개의 섹션(헤더, 미드)이 세로로 쌓이는 메인 영역
              ============================================ -->
-          <div class="right-main-content">
-            <!-- 1. Header Section
+					<div class="right-main-content">
+						<!-- 1. Header Section
                [구조] 텍스트 영역(좌) ←→ 일러스트 영역(우) 가로 배치 -->
-            <section class="detail-header-section">
-              <div class="detail-header-text-area">
-                <!-- [팀원 가이드] 이 박스 내부에 직무 타이틀, 부제목,
+						<section class="detail-header-section">
+							<div class="detail-header-text-area">
+								<!-- [팀원 가이드] 이 박스 내부에 직무 타이틀, 부제목,
                    설명 텍스트를 세로(column)로 자유롭게 구현하세요.
                    예: <h2> 직무명, <p> 한 줄 소개 -->
-              </div>
+							</div>
 
-              <div class="detail-header-illust-area">
-                <!-- [팀원 가이드] 이 박스 내부에 직무 대표 일러스트 이미지를
+							<div class="detail-header-illust-area">
+								<!-- [팀원 가이드] 이 박스 내부에 직무 대표 일러스트 이미지를
                    자유롭게 구현하세요. 예: <img src="..." /> -->
-              </div>
-            </section>
+							</div>
+						</section>
 
-            <!-- 2. Mid Content — 좌(적합성 체크리스트) / 우(추천 자격증 로드맵) 가로 2분할 -->
-            <section class="mid-content-flex-layout">
-              <!-- Left: 적합성 체크리스트 -->
-              <div class="checklist-card-box">
-                <!-- [팀원 가이드] 이 박스는 적합성 체크리스트 컴포넌트 영역입니다.
+						<!-- 2. Mid Content — 좌(적합성 체크리스트) / 우(추천 자격증 로드맵) 가로 2분할 -->
+						<section class="mid-content-flex-layout">
+							<!-- Left: 적합성 체크리스트 -->
+							<div class="checklist-card-box">
+								<!-- [팀원 가이드] 이 박스는 적합성 체크리스트 컴포넌트 영역입니다.
                    내부 레이아웃 방향(column/row)은 팀원이 자유롭게 결정하세요. -->
-              </div>
+							</div>
 
-              <!-- Right: 추천 자격증 로드맵 -->
-              <div class="roadmap-card-box">
-                <!-- [팀원 가이드] 이 박스는 추천 자격증 로드맵 컴포넌트 영역입니다.
+							<!-- Right: 추천 자격증 로드맵 -->
+							<div class="roadmap-card-box">
+								<!-- [팀원 가이드] 이 박스는 추천 자격증 로드맵 컴포넌트 영역입니다.
                    내부 레이아웃 방향(column/row)은 팀원이 자유롭게 결정하세요. -->
-              </div>
-            </section>
-          </div>
-          <!-- end: right-main-content -->
-        </div>
-        <!-- end: detail-main-splitter -->
+							</div>
+						</section>
+					</div>
+					<!-- end: right-main-content -->
+				</div>
+				<!-- end: detail-main-splitter -->
 
-        <!-- Job Postings Section — 사이드바 영역 밖, 전체 너비로 꽉 참
+				<!-- Job Postings Section — 사이드바 영역 밖, 전체 너비로 꽉 참
              [구조] 상단 타이틀 바 + 하단 공고 카드 리스트 (카드는 가로 Flex) -->
-        <section class="job-postings-section">
-          <!-- 타이틀 바 (상단)
+				<section class="job-postings-section">
+					<!-- 타이틀 바 (상단)
              [구조] 아이콘 + 타이틀 텍스트 가로 배치 -->
-          <div class="job-postings-title-bar">
-            <!-- [팀원 가이드] 이 박스 내부에 섹션 아이콘과 타이틀 텍스트를 구현하세요.
+					<div class="job-postings-title-bar">
+						<!-- [팀원 가이드] 이 박스 내부에 섹션 아이콘과 타이틀 텍스트를 구현하세요.
                예: <img 아이콘 /> + <h3>채용 공고</h3> -->
-          </div>
+					</div>
 
-          <!-- 공고 카드 리스트 (하단)
+					<!-- 공고 카드 리스트 (하단)
              [구조] 공고 카드들을 가로로 나열하는 Flex 레이아웃 -->
-          <div class="job-postings-card-list">
-            <!-- 공고 카드 샘플 1 -->
-            <div class="job-posting-card-box">
-              <!-- [팀원 가이드] 이 박스 내부에 회사명, 공고 타이틀, 태그, 마감일 등을
+					<div class="job-postings-card-list">
+						<!-- 공고 카드 샘플 1 -->
+						<div class="job-posting-card-box">
+							<!-- [팀원 가이드] 이 박스 내부에 회사명, 공고 타이틀, 태그, 마감일 등을
                  세로(flex-direction: column)로 자유롭게 구현하세요. -->
-            </div>
+						</div>
 
-            <div class="job-posting-card-box"></div>
-            <div class="job-posting-card-box"></div>
-            <div class="job-posting-card-box"></div>
+						<div class="job-posting-card-box"></div>
+						<div class="job-posting-card-box"></div>
+						<div class="job-posting-card-box"></div>
 
-            <!-- [팀원 가이드] 백엔드 데이터 연동 시 위의 .job-posting-card-box 틀을 사용하여
+						<!-- [팀원 가이드] 백엔드 데이터 연동 시 위의 .job-posting-card-box 틀을 사용하여
                반복문(반복 렌더링)으로 채용 공고 목록을 동적으로 생성하세요. -->
-          </div>
-        </section>
-      </main>
+					</div>
+				</section>
+			</main>
 
-      <!-- ================================================
+			<!-- ================================================
          Footer — 하단 바
          [구조] 카피라이트(좌) ←→ 링크(우), space-between 정렬
          ================================================ -->
-      <footer>
-        <div class="footer-container">
-          <div class="footer-copyright-area">
-            <!-- [팀원 가이드] 이 박스 내부에 카피라이트 텍스트를 구현하세요.
+			<footer>
+				<div class="footer-container">
+					<div class="footer-copyright-area">
+						<!-- [팀원 가이드] 이 박스 내부에 카피라이트 텍스트를 구현하세요.
                예: © 2025 Team Name. All rights reserved. -->
-          </div>
+					</div>
 
-          <div class="footer-link-area">
-            <!-- [팀원 가이드] 이 박스 내부에 푸터 링크들을 가로로 나열하세요.
+					<div class="footer-link-area">
+						<!-- [팀원 가이드] 이 박스 내부에 푸터 링크들을 가로로 나열하세요.
                예: 개인정보처리방침 / 이용약관 / GitHub -->
-          </div>
-        </div>
-      </footer>
-    </div>
-  </body>
+					</div>
+				</div>
+			</footer>
+		</div>
+		<script src="job-header.js"></script>
+		<script src="job-illust.js"></script>
+		<script src="roadmap-card.js"></script>
+	</body>
 </html>

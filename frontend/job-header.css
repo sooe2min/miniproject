@@ -1,0 +1,72 @@
+/* ============================================================
+   job-header.css — 직무 헤더 텍스트 영역 내부 스타일
+   (detail-header-text-area 내부에 자바스크립트로 렌더링되는 요소들의 스타일)
+   ============================================================ */
+
+:root {
+  --sf-jh-primary-color: #00a1e0; /* 세일즈포스 메인 블루 (태그/체크 아이콘 색상) */
+  --sf-jh-primary-light-bg: #eaf6fd; /* 태그 배지 배경 (연한 블루) */
+  --sf-jh-title-text-color: #16325c; /* 직무 타이틀 텍스트 색상 */
+  --sf-jh-check-text-color: #191f28; /* 체크리스트 항목 텍스트 색상 */
+}
+
+/* 태그 배지 목록 — 가로로 나열 */
+.sf-jh-tag-row {
+  display: flex; /* 태그 배지들을 가로로 나란히 배치 */
+  gap: 8px; /* 배지 사이 간격 */
+  margin-bottom: 16px; /* 아래 타이틀과의 간격 */
+}
+
+/* 태그 배지 하나 — 알약(pill) 모양 */
+.sf-jh-tag-badge {
+  padding: 6px 14px;
+  border: 1px solid var(--sf-jh-primary-color);
+  border-radius: 999px; /* 완전히 둥근 알약 모양 */
+  background-color: var(--sf-jh-primary-light-bg);
+  color: var(--sf-jh-primary-color);
+  font-size: 13px;
+  font-weight: 600;
+}
+
+/* 직무 타이틀 */
+.sf-jh-title {
+  font-size: 26px;
+  font-weight: 700;
+  color: var(--sf-jh-title-text-color);
+  margin-bottom: 20px; /* 아래 체크리스트와의 간격 */
+}
+
+/* 핵심 역량 체크리스트 */
+.sf-jh-checklist {
+  display: flex; /* 체크리스트 항목들을 세로로 쌓기 위한 flex 설정 */
+  flex-direction: column; /* 위→아래 방향으로 배치 */
+  gap: 10px; /* 항목 사이 간격 */
+  list-style: none; /* 기본 리스트 불릿 제거 */
+}
+
+/* 체크리스트 항목 하나 — 체크 아이콘(좌) + 설명(우) 가로 배치 */
+.sf-jh-checklist-item {
+  display: flex; /* 아이콘과 텍스트를 가로로 나란히 배치 */
+  align-items: center; /* 아이콘과 텍스트를 수직 중앙 기준으로 정렬 */
+  gap: 10px; /* 아이콘과 텍스트 사이 간격 */
+}
+
+/* 체크 아이콘 (원형) */
+.sf-jh-check-icon {
+  flex-shrink: 0; /* 텍스트가 길어져도 아이콘 크기가 줄어들지 않도록 고정 */
+  width: 20px;
+  height: 20px;
+  border-radius: 50%; /* 완전한 원형 아이콘 배경 */
+  display: flex; /* 체크 표시를 중앙 정렬하기 위한 flex 설정 */
+  align-items: center;
+  justify-content: center;
+  background-color: var(--sf-jh-primary-color);
+  color: #ffffff;
+  font-size: 12px;
+  font-weight: 700;
+}
+
+.sf-jh-check-text {
+  font-size: 15px;
+  color: var(--sf-jh-check-text-color);
+}

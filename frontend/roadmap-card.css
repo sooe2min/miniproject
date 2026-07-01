@@ -1,0 +1,106 @@
+/* ============================================================
+   roadmap-card.css — 추천 자격증 로드맵 카드 내부 스타일
+   (roadmap-card-box 내부에 자바스크립트로 렌더링되는 요소들의 스타일)
+   ============================================================ */
+
+:root {
+  --sf-rm-primary-color: #00a1e0; /* 세일즈포스 메인 블루 (1단계 배지/박스 색상) */
+  --sf-rm-primary-mid-color: #0176d3; /* 중간 블루 (2, 3단계 배지/박스 색상) */
+  --sf-rm-primary-dark-color: #032d60; /* 진한 블루 (마지막 단계 배지/박스 색상) */
+  --sf-rm-box-bg-color: #f0f8fd; /* 자격증명 박스 기본 배경 (연한 블루) */
+  --sf-rm-box-bg-color-mid: #e6f3fb; /* 2, 3단계 박스 배경 (조금 더 진한 연블루) */
+  --sf-rm-box-bg-color-dark: #e8eef8; /* 4단계 박스 배경 (남색 톤이 섞인 연블루) */
+  --sf-rm-title-text-color: #16325c; /* 카드 타이틀 텍스트 색상 */
+  --sf-rm-subtitle-text-color: #6b7684; /* 카드 부제목(설명 문구) 텍스트 색상 */
+  --sf-rm-step-text-color: #16325c; /* 스텝 자격증명 텍스트 색상 */
+  --sf-rm-status-text-color: #6b7684; /* 로딩/에러 안내 문구 색상 */
+}
+
+/* 카드 타이틀 */
+.sf-rm-title-text {
+  font-size: 18px; /* 카드 제목 강조를 위한 크기 */
+  font-weight: 700; /* 굵게 처리해 시선 집중 */
+  color: var(--sf-rm-title-text-color);
+  margin-bottom: 6px; /* 바로 아래 부제목과의 간격 */
+}
+
+/* 카드 부제목 — 타이틀 바로 밑 안내 문구 */
+.sf-rm-subtitle-text {
+  font-size: 14px;
+  color: var(--sf-rm-subtitle-text-color);
+  margin-bottom: 20px; /* 아래 로드맵 리스트와의 간격 */
+}
+
+/* 로드맵 스텝 리스트 — 배지가 세로로 이어지는 리스트 */
+.sf-rm-step-list {
+  display: flex; /* 스텝 아이템들을 세로로 쌓기 위한 flex 설정 */
+  flex-direction: column; /* 위→아래 방향으로 배치 */
+  list-style: none; /* 기본 리스트 불릿 제거 */
+}
+
+/* 스텝 아이템 하나 — 배지(좌) + 자격증명 박스(우) 가로 배치 */
+.sf-rm-step-item {
+  display: flex; /* 배지와 박스를 가로로 나란히 배치 */
+  align-items: center; /* 배지와 박스를 수직 중앙 기준으로 정렬 */
+  gap: 14px; /* 배지와 박스 사이 간격 */
+  margin-bottom: 14px; /* 다음 스텝과의 세로 간격 */
+}
+
+.sf-rm-step-item:last-child {
+  margin-bottom: 0; /* 마지막 스텝은 아래 여백 제거 */
+}
+
+/* 순번 배지 (원형) */
+.sf-rm-step-badge {
+  flex-shrink: 0; /* 텍스트가 길어져도 배지 크기가 줄어들지 않도록 고정 */
+  width: 32px;
+  height: 32px;
+  border-radius: 50%; /* 완전한 원형 배지 */
+  display: flex; /* 배지 안의 숫자를 중앙 정렬하기 위한 flex 설정 */
+  align-items: center;
+  justify-content: center;
+  background-color: var(--sf-rm-primary-color); /* 기본 배지 색상 (1단계) */
+  color: #ffffff;
+  font-size: 14px;
+  font-weight: 700;
+  z-index: 1; /* 뒤에 그려지는 연결선보다 배지가 위로 보이도록 설정 */
+}
+
+/* 단계가 깊어질수록 진한 세일즈포스 블루로 변하는 그라데이션 느낌 */
+.sf-rm-step-badge.sf-rm-step-2,
+.sf-rm-step-badge.sf-rm-step-3 {
+  background-color: var(--sf-rm-primary-mid-color);
+}
+
+.sf-rm-step-badge.sf-rm-step-4 {
+  background-color: var(--sf-rm-primary-dark-color);
+}
+
+/* 자격증명 박스 — 사진 참고: 자격증명 텍스트를 둥근 박스로 감쌈 */
+.sf-rm-step-title {
+  flex: 1; /* 배지를 제외한 남은 가로 공간을 모두 차지 */
+  padding: 14px 18px;
+  border-radius: 12px; /* 둥근 모서리 박스 */
+  background-color: var(--sf-rm-box-bg-color); /* 기본 박스 배경 (1단계) */
+  font-size: 15px;
+  font-weight: 600;
+  color: var(--sf-rm-step-text-color);
+}
+
+/* 단계가 깊어질수록 박스 배경도 배지와 맞춰 진한 블루 계열로 변화 */
+.sf-rm-step-title.sf-rm-step-2,
+.sf-rm-step-title.sf-rm-step-3 {
+  background-color: var(--sf-rm-box-bg-color-mid);
+}
+
+.sf-rm-step-title.sf-rm-step-4 {
+  background-color: var(--sf-rm-box-bg-color-dark);
+}
+
+/* 로딩 중 / 에러 발생 시 보여줄 안내 문구 */
+.sf-rm-status-text {
+  font-size: 14px;
+  color: var(--sf-rm-status-text-color);
+  text-align: center;
+  padding: 20px 0;
+}
