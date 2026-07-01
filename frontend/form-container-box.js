@@ -6,11 +6,13 @@ const SCRIPT_URL;
 
 function sfFormRender() {
   const formContainer = document.querySelector(".form-container-box");
+  if (!formContainer) return;
 
   formContainer.innerHTML = `
-    <h3 class="sf-form-title">직무 요약 메일 신청</h3>
-    <p class="sf-form-desc">관심 있는 직무의 요약 정보를 이메일로 받아보세요</p>
+  <h3 class="sf-form-title">직무 요약 메일 신청</h3>
+  <p class="sf-form-desc">관심 있는 직무의 요약 정보를 이메일로 받아보세요</p>
 
+  <form class="sf-form-box" id="sf-form">
     <input type="text" id="sf-name-input" class="sf-form-input" placeholder="이름" />
     <input type="email" id="sf-email-input" class="sf-form-input" placeholder="이메일" />
 
@@ -22,19 +24,21 @@ function sfFormRender() {
       <option value="pu">Power User</option>
     </select>
 
-    <button type="button" id="sf-submit-btn" class="sf-form-submit-btn">정보 받기</button>
+    <button type="submit" id="sf-submit-btn" class="sf-form-submit-btn">정보 받기</button>
+  </form>
   `;
+
+  // innerHTML 세팅 직후 즉시 submit 리스너 연결 — 타이밍 문제 원천 차단
+  document
+    .getElementById("sf-form")
+    .addEventListener("submit", sfFormHandleSubmit);
 }
 
-document.addEventListener("DOMContentLoaded", () => {
-  sfFormRender();
-
-  // 렌더링이 끝난 후 제출 버튼에 클릭 이벤트를 연결
-  const submitBtn = document.getElementById("sf-submit-btn");
-  submitBtn.addEventListener("click", sfFormHandleSubmit);
-});
+document.addEventListener("DOMContentLoaded", sfFormRender);
 
 function sfFormHandleSubmit(event) {
+  event.preventDefault(); // 폼 제출 시 페이지 새로고침 방지
+
   const nameInput = document.getElementById("sf-name-input");
   const emailInput = document.getElementById("sf-email-input");
   const jobSelect = document.getElementById("sf-job-select");
@@ -99,16 +103,7 @@ async function sfFormSubmitData(data) {
       ...data,
     };
 
-    // 3. 새 구독자 데이터를 서버(db.json)에 등록
-    const postResponse = await fetch(apiUrl, {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify(newSubscriber),
-    });
-
-    if (!postResponse.ok) {
-      throw new Error("서버 등록에 실패했습니다.");
-    }
+    alert("신청이 완료되었습니다! 이메일 발송 예정입니다.");
 
     // 4. 관심 직무의 상세 정보(설명, 역량, 자격증, 채용 공고)를 db.json에서 조회
     const careerResponse = await fetch(
@@ -132,7 +127,16 @@ async function sfFormSubmitData(data) {
       mode: "no-cors", // 응답은 못 읽지만 요청은 정상 실행됨
     });
 
-    alert("신청이 완료되었습니다! 이메일 발송 예정입니다.");
+    // 3. 새 구독자 데이터를 서버(db.json)에 등록
+    const postResponse = await fetch(apiUrl, {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify(newSubscriber),
+    });
+
+    if (!postResponse.ok) {
+      throw new Error("서버 등록에 실패했습니다.");
+    }
   } catch (error) {
     console.error(error);
     alert(
