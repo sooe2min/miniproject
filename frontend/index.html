@@ -1,130 +1,135 @@
 <!doctype html>
 <html lang="ko">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>메인 페이지</title>
-    <link rel="stylesheet" href="style.css" />
-    <link rel="stylesheet" href="form-container-box.css" />
-    <link rel="stylesheet" href="job-card-container.css" />
-    <link rel="stylesheet" href="debug.css" />
-  </head>
-  <body>
-    <div class="page-wrapper">
-      <!-- ================================================
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>메인 페이지</title>
+		<link rel="stylesheet" href="style.css" />
+		<link rel="stylesheet" href="form-container-box.css" />
+		<link rel="stylesheet" href="job-card-container.css" />
+		<link rel="stylesheet" href="chatbot-icon-override.css" />
+		<link rel="stylesheet" href="debug.css" />
+	</head>
+	<body>
+		<div class="page-wrapper">
+			<!-- ================================================
          GNB — 글로벌 내비게이션 바
          [구조] 로고(좌) + 서비스명 텍스트(바로 옆, gap으로 붙음)
          ================================================ -->
-      <header>
-        <nav class="gnb-container">
-          <div class="gnb-logo-area">
-            <img
-              src="./assets/images/salesforce.png"
-              alt="SF 취업 가이드 로고"
-            />
-          </div>
+			<header>
+				<nav class="gnb-container">
+					<div class="gnb-logo-area">
+						<img
+							src="./assets/images/salesforce.png"
+							alt="SF 취업 가이드 로고"
+						/>
+					</div>
 
-          <span class="gnb-service-name">SF 취업 가이드</span>
-        </nav>
-      </header>
+					<span class="gnb-service-name">SF 취업 가이드</span>
+				</nav>
+			</header>
 
-      <!-- ================================================
+			<!-- ================================================
          메인 콘텐츠 영역
          ================================================ -->
-      <main class="main-content">
-        <!-- 1. Hero Section
+			<main class="main-content">
+				<!-- 1. Hero Section
            [구조] 중앙 정렬된 배너 박스 틀 -->
-        <section class="hero-section-box">
-          <h1>내게 맞는 세일즈포스 직무 제안</h1>
-          <p>
-            세일즈포스의 다양한 직무를 탐색하고, 나에게 맞는 커리어를
-            찾아보세요.
-          </p>
-          <!-- [팀원 가이드] 이 박스 내부에 서비스 메인 타이틀과 설명 문구를
+				<section class="hero-section-box">
+					<h1>내게 맞는 세일즈포스 직무 제안</h1>
+					<p>
+						세일즈포스의 다양한 직무를 탐색하고, 나에게 맞는 커리어를
+						찾아보세요.
+					</p>
+					<!-- [팀원 가이드] 이 박스 내부에 서비스 메인 타이틀과 설명 문구를
              세로(flex-direction: column)로, 텍스트 중앙 정렬로 구현하세요.
              예: <h1>, <p> -->
-        </section>
+				</section>
 
-        <!-- 2. Job Card Container
+				<!-- 2. Job Card Container
            [구조] 4개의 직무 카드를 가로로 나열하는 Flex 레이아웃 -->
-        <section class="job-card-container">
-          <!-- [팀원 가이드] 이 박스 내부에 캐릭터 이미지 공간, 직무 타이틀,
+				<section class="job-card-container">
+					<!-- [팀원 가이드] 이 박스 내부에 캐릭터 이미지 공간, 직무 타이틀,
                태그 영역, 상세 버튼을 세로(flex-direction: column)로
                자유롭게 구현하세요. -->
-          <!-- Job Card 샘플 -->
-          <div class="job-card-box" id="admin">
-            <img src="" />
-          </div>
-          <div class="job-card-box" id="dev"></div>
-          <div class="job-card-box" id="consultant"></div>
-          <div class="job-card-box" id="pu"></div>
-        </section>
+					<!-- Job Card 샘플 -->
+					<div class="job-card-box" id="admin">
+						<img src="" />
+					</div>
+					<div class="job-card-box" id="dev"></div>
+					<div class="job-card-box" id="consultant"></div>
+					<div class="job-card-box" id="pu"></div>
+				</section>
 
-        <!-- 3. Bottom Layout — 좌(폼) / 우(방명록) 가로 분할 틀 -->
-        <section class="bottom-layout-container">
-          <!-- Form Box (좌측)
+				<!-- 3. Bottom Layout — 좌(폼) / 우(방명록) 가로 분할 틀 -->
+				<section class="bottom-layout-container">
+					<!-- Form Box (좌측)
              [구조] 입력 요소들과 버튼이 세로로 나열될 폼 컨테이너 -->
-          <div class="form-container-box">
-            <!-- [팀원 가이드] 이 박스 내부에 입력 필드들(이름, 이메일, 메시지 등)과
+					<div class="form-container-box">
+						<!-- [팀원 가이드] 이 박스 내부에 입력 필드들(이름, 이메일, 메시지 등)과
                제출 버튼을 세로(flex-direction: column)로 자유롭게 구현하세요. -->
-          </div>
+					</div>
 
-          <!-- Guestbook Box (우측)
+					<!-- Guestbook Box (우측)
              [구조] 입력 상단부 + 리스트 하단부가 세로로 배치될 방명록 컨테이너 -->
-          <div class="guestbook-container-box">
-            <!-- 방명록 입력 영역 (상단) -->
-            <div class="guestbook-input-area">
-              <!-- [팀원 가이드] 이 박스 내부에 방명록 한 줄 입력 필드와
+					<div class="guestbook-container-box">
+						<!-- 방명록 입력 영역 (상단) -->
+						<div class="guestbook-input-area">
+							<!-- [팀원 가이드] 이 박스 내부에 방명록 한 줄 입력 필드와
                  등록 버튼을 자유롭게 구현하세요. -->
-            </div>
+						</div>
 
-            <!-- 방명록 리스트 영역 (하단) -->
-            <div class="guestbook-list-area">
-              <!-- [팀원 가이드] 이 박스 내부에 작성자명, 날짜, 내용 텍스트를
+						<!-- 방명록 리스트 영역 (하단) -->
+						<div class="guestbook-list-area">
+							<!-- [팀원 가이드] 이 박스 내부에 작성자명, 날짜, 내용 텍스트를
                    자유롭게 구현하세요. -->
-              <!-- 방명록 아이템 샘플 -->
-              <div class="guestbook-item-box"></div>
-              <div class="guestbook-item-box"></div>
-              <div class="guestbook-item-box"></div>
-            </div>
-          </div>
-        </section>
-      </main>
+							<!-- 방명록 아이템 샘플 -->
+							<div class="guestbook-item-box"></div>
+							<div class="guestbook-item-box"></div>
+							<div class="guestbook-item-box"></div>
+						</div>
+					</div>
+				</section>
+			</main>
 
-      <!-- ================================================
+			<!-- ================================================
          Footer — 하단 바
          [구조] 카피라이트(좌) ←→ 링크(우), space-between 정렬
          ================================================ -->
-      <footer>
-        <div class="footer-container">
-          <!-- 좌측: 로고 + 서비스명·카피라이트 -->
-          <div class="footer-copyright-area">
-            <img
-              src="./assets/images/salesforce.png"
-              alt="SF 취업 가이드 로고"
-              class="ft-logo"
-            />
-            <div class="ft-brand-text">
-              <span class="ft-service-name">SF 취업 가이드</span>
-              <span class="ft-copyright"
-                >© 2025 Team Name. All rights reserved.</span
-              >
-            </div>
-          </div>
+			<footer>
+				<div class="footer-container">
+					<!-- 좌측: 로고 + 서비스명·카피라이트 -->
+					<div class="footer-copyright-area">
+						<img
+							src="./assets/images/salesforce.png"
+							alt="SF 취업 가이드 로고"
+							class="ft-logo"
+						/>
+						<div class="ft-brand-text">
+							<span class="ft-service-name">SF 취업 가이드</span>
+							<span class="ft-copyright"
+								>© 2025 Team Name. All rights reserved.</span
+							>
+						</div>
+					</div>
 
-          <!-- 우측: 정책 링크 -->
-          <div class="footer-link-area">
-            <span class="ft-link-text">이용약관</span>
-            <span class="ft-sep">|</span>
-            <span class="ft-link-text">개인정보처리방침</span>
-          </div>
-        </div>
-      </footer>
-    </div>
+					<!-- 우측: 정책 링크 -->
+					<div class="footer-link-area">
+						<span class="ft-link-text">이용약관</span>
+						<span class="ft-sep">|</span>
+						<span class="ft-link-text">개인정보처리방침</span>
+					</div>
+				</div>
+			</footer>
+		</div>
 
-    <script src="form-container-box.js"></script>
-    <script src="job-card-container.js"></script>
-    <!-- 세일즈포스 길잡이 챗봇 위젯 (자체 플로팅 버블+패널을 주입함) -->
-    <script src="https://salesforcechatbot-5cla.vercel.app/widget.js" defer></script>
-  </body>
+		<script src="form-container-box.js"></script>
+		<script src="job-card-container.js"></script>
+		<!-- 세일즈포스 길잡이 챗봇 위젯 (자체 플로팅 버블+패널을 주입함) -->
+		<script
+			src="https://salesforcechatbot-5cla.vercel.app/widget.js"
+			defer
+		></script>
+		<script src="chatbot-icon-override.js" defer></script>
+	</body>
 </html>
