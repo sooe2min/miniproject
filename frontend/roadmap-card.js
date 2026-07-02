@@ -1,10 +1,10 @@
 // json-server가 떠 있는 로컬 서버 주소 (추천 자격증 로드맵 카드 전용)
-const isLocalhost =
+const rcIsLocalhost =
   window.location.hostname === "localhost" ||
   window.location.hostname === "127.0.0.1";
-const sfRmApiBaseUrl = isLocalhost
+const sfRmApiBaseUrl = rcIsLocalhost
   ? "http://localhost:3000"
-  : "http://miniproject-ijxt.onrender.com";
+  : "https://miniproject-ijxt.onrender.com";
 
 document.addEventListener("DOMContentLoaded", () => {
   sfRmInitRoadmapCard();
