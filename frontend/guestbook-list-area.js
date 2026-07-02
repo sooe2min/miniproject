@@ -8,13 +8,16 @@ document.addEventListener("DOMContentLoaded", () => {
   sfGbRenderForm();
   sfGbRenderList();
 
-  // 렌더링이 끝난 후 등록 버튼에 클릭 이벤트를 연결
+  // 등록 버튼
   const submitBtn = document.getElementById("sf-gb-submit-btn");
   submitBtn.addEventListener("click", sfGbHandleSubmit);
 
-  // 댓글이 동적으로 생성되므로, 삭제 버튼 클릭 이벤트는 리스트 영역에 위임해서 처리
+  // 삭제 아이콘·팝오버 확인 버튼 — 리스트 영역에 이벤트 위임
   const listArea = document.querySelector(".guestbook-list-area");
-  listArea.addEventListener("click", sfGbHandleDeleteClick);
+  listArea.addEventListener("click", sfGbHandleListClick);
+
+  // 팝오버 외부 클릭 시 모두 닫기
+  document.addEventListener("click", sfGbCloseAllPopovers);
 });
 
 // 방명록 상단 — 타이틀 + 입력창(이름/비밀번호/내용) + 등록 버튼을 한 줄로 렌더링
@@ -126,16 +129,24 @@ async function sfGbRenderList() {
       .map(
         (comment) => `
           <div class="guestbook-item-box" id="sf-gb-item-${comment.id}">
+            <div class="sf-gb-delete-wrapper">
+              <div class="sf-gb-delete-popover" id="sf-gb-popover-${comment.id}">
+                <input type="password" class="sf-gb-popover-input" data-id="${comment.id}" placeholder="비밀번호" />
+                <button type="button" class="sf-gb-popover-confirm-btn" data-id="${comment.id}">확인</button>
+              </div>
+              <button type="button" class="sf-gb-delete-icon-btn" data-id="${comment.id}" aria-label="댓글 삭제">
+                <svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                  <polyline points="3 6 5 6 21 6"></polyline>
+                  <path d="M19 6l-1 14a2 2 0 0 1-2 2H8a2 2 0 0 1-2-2L5 6"></path>
+                  <path d="M10 11v6"></path>
+                  <path d="M14 11v6"></path>
+                  <path d="M9 6V4a1 1 0 0 1 1-1h4a1 1 0 0 1 1 1v2"></path>
+                </svg>
+              </button>
+            </div>
             <div class="sf-gb-item-header">
               <span class="sf-gb-item-author">${comment.author}</span>
               <span class="sf-gb-item-date">${comment.created_at}</span>
-              <input
-                type="password"
-                class="sf-gb-delete-password-input"
-                data-id="${comment.id}"
-                placeholder="비밀번호"
-              />
-              <button type="button" class="sf-gb-delete-btn" data-id="${comment.id}">삭제</button>
             </div>
             <p class="sf-gb-item-content">${comment.content}</p>
           </div>
@@ -148,41 +159,75 @@ async function sfGbRenderList() {
   }
 }
 
-// 삭제 버튼 클릭 시 비밀번호를 대조하고, 일치하면 화면과 db.json에서 함께 삭제
-async function sfGbHandleDeleteClick(event) {
-  if (!event.target.classList.contains("sf-gb-delete-btn")) return;
+// 리스트 영역 클릭 이벤트 위임 — 쓰레기통 아이콘 / 팝오버 확인 버튼 처리
+function sfGbHandleListClick(event) {
+  const iconBtn = event.target.closest(".sf-gb-delete-icon-btn");
+  const confirmBtn = event.target.closest(".sf-gb-popover-confirm-btn");
 
-  const commentId = Number(event.target.dataset.id);
-  const passwordInput = document.querySelector(
-    `.sf-gb-delete-password-input[data-id="${commentId}"]`,
-  );
+  if (iconBtn) {
+    event.stopPropagation(); // 문서 클릭 핸들러(닫기)로 버블링 차단
+    const commentId = iconBtn.dataset.id;
+    sfGbTogglePopover(commentId);
+    return;
+  }
 
-  // 비밀번호가 입력되었는지 확인
+  if (confirmBtn) {
+    event.stopPropagation();
+    const commentId = confirmBtn.dataset.id;
+    sfGbHandleDeleteConfirm(commentId);
+    return;
+  }
+
+  // 팝오버 내부 클릭 시 닫히지 않도록 버블링 차단
+  if (event.target.closest(".sf-gb-delete-popover")) {
+    event.stopPropagation();
+  }
+}
+
+// 쓰레기통 아이콘 클릭 → 해당 팝오버 토글, 나머지 팝오버 닫기
+function sfGbTogglePopover(commentId) {
+  const target = document.getElementById(`sf-gb-popover-${commentId}`);
+  const isOpen = target.classList.contains("is-open");
+
+  sfGbCloseAllPopovers();
+
+  if (!isOpen) {
+    target.classList.add("is-open");
+    target.querySelector(".sf-gb-popover-input")?.focus();
+  }
+}
+
+// 모든 팝오버 닫기 (외부 클릭 시 호출)
+function sfGbCloseAllPopovers() {
+  document.querySelectorAll(".sf-gb-delete-popover.is-open").forEach((el) => {
+    el.classList.remove("is-open");
+    el.querySelector(".sf-gb-popover-input").value = "";
+  });
+}
+
+// 팝오버 확인 버튼 → 비밀번호 대조 후 삭제
+async function sfGbHandleDeleteConfirm(commentId) {
+  const popover = document.getElementById(`sf-gb-popover-${commentId}`);
+  const passwordInput = popover.querySelector(".sf-gb-popover-input");
+  const id = Number(commentId);
+
   if (passwordInput.value.trim() === "") {
     alert("비밀번호를 입력해주세요.");
     return;
   }
 
-  // 화면에 보관 중인 댓글 목록에서 같은 id의 댓글을 찾아 비밀번호를 비교
-  const targetComment = sfGbComments.find((comment) => comment.id === commentId);
+  const targetComment = sfGbComments.find((c) => c.id === id);
   if (!targetComment || targetComment.password !== passwordInput.value) {
     alert("비밀번호가 일치하지 않습니다.");
     return;
   }
 
   try {
-    // db.json에서도 해당 댓글을 삭제
-    const response = await fetch(`${GB_API}/comments/${commentId}`, {
-      method: "DELETE",
-    });
+    const response = await fetch(`${GB_API}/comments/${id}`, { method: "DELETE" });
+    if (!response.ok) throw new Error("삭제에 실패했습니다.");
 
-    if (!response.ok) {
-      throw new Error("삭제에 실패했습니다.");
-    }
-
-    // 화면에서도 해당 댓글 카드를 제거
-    document.getElementById(`sf-gb-item-${commentId}`).remove();
-    sfGbComments = sfGbComments.filter((comment) => comment.id !== commentId);
+    document.getElementById(`sf-gb-item-${id}`).remove();
+    sfGbComments = sfGbComments.filter((c) => c.id !== id);
   } catch (error) {
     console.error(error);
     alert("삭제 중 오류가 발생했습니다. json-server가 켜져 있는지 확인해주세요.");

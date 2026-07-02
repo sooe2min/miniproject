@@ -175,7 +175,7 @@
 }
 
 .result-desc {
-  font-size: var(--text-base);
+  font-size: var(--text-sm);
   color: var(--color-subtext);
   line-height: 1.5;
   margin-bottom: var(--space-2);
