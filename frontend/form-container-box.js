@@ -2,7 +2,7 @@
 const API = "http://localhost:3000";
 
 // 이메일 발송을 담당하는 Google Apps Script 배포 URL
-const SCRIPT_URL;
+const SCRIPT_URL = process.env.SCRIPT_URL;
 
 function sfFormRender() {
   const formContainer = document.querySelector(".form-container-box");
