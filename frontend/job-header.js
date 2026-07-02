@@ -1,5 +1,10 @@
 // json-server가 떠 있는 로컬 서버 주소 (직무 헤더 텍스트 영역 전용)
-const sfJhApiBaseUrl = "http://localhost:3000";
+const isLocalhost =
+  window.location.hostname === "localhost" ||
+  window.location.hostname === "127.0.0.1";
+const sfJhApiBaseUrl = isLocalhost
+  ? "http://localhost:3000"
+  : "miniproject-ijxt.onrender.com;
 
 document.addEventListener("DOMContentLoaded", () => {
   sfJhInitJobHeader();
