@@ -4,7 +4,7 @@ const isLocalhost =
   window.location.hostname === "127.0.0.1";
 const API = isLocalhost
   ? "http://localhost:3000"
-  : "miniproject-ijxt.onrender.com";
+  : "http://miniproject-ijxt.onrender.com";
 
 // 이메일 발송을 담당하는 Google Apps Script 배포 URL
 const SCRIPT_URL =

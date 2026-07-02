@@ -4,7 +4,7 @@ const isLocalhost =
   window.location.hostname === "127.0.0.1";
 const JOB_API = isLocalhost
   ? "http://localhost:3000"
-  : "miniproject-ijxt.onrender.com";
+  : "http://miniproject-ijxt.onrender.com";
 
 // 직무 id별 캐릭터 이미지 경로
 const sfJcImageMap = {

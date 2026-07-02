@@ -7,7 +7,7 @@ const isLocalhost =
   window.location.hostname === "127.0.0.1";
 const CC_API_BASE = isLocalhost
   ? "http://localhost:3000"
-  : "miniproject-ijxt.onrender.com";
+  : "http://miniproject-ijxt.onrender.com";
 
 // 체크리스트 전체 항목 수. 직무 데이터를 받아오기 전까지의 기본값이며,
 // 실제 값은 ccRenderChecklist()에서 받아온 skills 배열 길이로 갱신됨

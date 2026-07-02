@@ -4,7 +4,7 @@ const isLocalhost =
   window.location.hostname === "127.0.0.1";
 const sfJiApiBaseUrl = isLocalhost
   ? "http://localhost:3000"
-  : "miniproject-ijxt.onrender.com;
+  : "http://miniproject-ijxt.onrender.com;
 
 // 직무 id별 마스코트 이미지 파일명 매핑
 // (assets/images 폴더 안의 파일명에 직무가 그대로 들어있어 id 기준으로 연결)

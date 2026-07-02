@@ -4,7 +4,7 @@ const isLocalhost =
   window.location.hostname === "127.0.0.1";
 const GB_API = isLocalhost
   ? "http://localhost:3000"
-  : "miniproject-ijxt.onrender.com";
+  : "http://miniproject-ijxt.onrender.com";
 
 // 현재 화면에 렌더링된 댓글 목록 (삭제 시 비밀번호 대조용으로 보관)
 let sfGbComments = [];
