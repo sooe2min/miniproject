@@ -218,15 +218,19 @@ function sfGbCloseAllPopovers() {
 async function sfGbHandleDeleteConfirm(commentId) {
   const popover = document.getElementById(`sf-gb-popover-${commentId}`);
   const passwordInput = popover.querySelector(".sf-gb-popover-input");
-  const id = Number(commentId);
+  const id = commentId;
 
   if (passwordInput.value.trim() === "") {
     alert("비밀번호를 입력해주세요.");
     return;
   }
 
-  const targetComment = sfGbComments.find((c) => c.id === id);
-  if (!targetComment || targetComment.password !== passwordInput.value) {
+  const targetComment = sfGbComments.find((c) => String(c.id) === String(id));
+
+  if (
+    !targetComment ||
+    String(targetComment.password) !== String(passwordInput.value)
+  ) {
     alert("비밀번호가 일치하지 않습니다.");
     return;
   }
