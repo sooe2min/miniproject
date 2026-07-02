@@ -1,0 +1,649 @@
+{
+  "cards": [
+    {
+      "id": "admin",
+      "title": "Admin",
+      "oneliner": "비즈니스와 IT를 매끄럽게 잇는 내부 혁신가",
+      "tags": [
+        "No-Code",
+        "비즈니스 분석"
+      ]
+    },
+    {
+      "id": "dev",
+      "title": "Developer",
+      "oneliner": "코드로 시스템의 한계를 돌파하는 기술 전문가",
+      "tags": [
+        "Apex/LWC",
+        "시스템 통합"
+      ]
+    },
+    {
+      "id": "consultant",
+      "title": "Consultant",
+      "oneliner": "최적의 디지털 전환 로드맵을 그리는 비즈니스 가이드",
+      "tags": [
+        "DX 컨설팅",
+        "아키텍처"
+      ]
+    },
+    {
+      "id": "pu",
+      "title": "Power User",
+      "oneliner": "시스템을 무기로 현장의 성과를 이끄는 핵심 실무자",
+      "tags": [
+        "성과 창출",
+        "변화 관리"
+      ]
+    }
+  ],
+  "careers": [
+    {
+      "id": "admin",
+      "title": "어드민 / 비즈니스 애널리스트 (Admin / Business Analyst)",
+      "description": "비즈니스 현업의 언어를 IT 기술의 언어로 번역하고, 기업이 세일즈포스 솔루션을 100% 활용해 실질적인 ROI를 낼 수 있도록 돕는 시스템의 설계자이자 관리자입니다. 비즈니스 요구사항 분석(PI 컨설팅), 데이터 아키텍처 및 철저한 보안 관리, 선언적(No-Code/Low-Code) 자동화 구현 및 기술 부채 관리, 사용자 채택 주도 및 체인지 매니지먼트 역할을 수행합니다.",
+      "skills": [
+        "세일즈포스 플랫폼 종합 이해도",
+        "비즈니스 프로세스 이해도",
+        "업무용 툴 활용 및 문서 작업 역량 (제안, 발표, 교육)",
+        "Salesforce Flow Builder 자동화 구현",
+        "데이터 품질 관리 (Data Hygiene) 및 Data Loader 활용",
+        "동적 보고서(Report) 및 대시보드(Dashboard) 시각화 기획력"
+      ],
+      "certifications": [
+        "Administrator (ADX-201 / ADM-201)",
+        "Advanced Administrator (ADX-211 / ADM-211)",
+        "Platform App Builder (DEX-403)",
+        "Business Analyst"
+      ],
+      "job_postings": [
+        {
+          "company": "솔로몬텍",
+          "actual_title": "Salesforce Consultant / Admin",
+          "summary": "비즈니스 요구사항을 세일즈포스 기능으로 구성하고, Flow 자동화 및 권한 체계를 관리하여 전사 생산성을 혁신합니다.",
+          "logo_url": "/frontend/assets/icons/01_cloudtech.svg",
+          "link": "https://www.wanted.co.kr/wd/178166",
+          "city": "서울",
+          "expYears": "경력무관",
+          "daysAgo": "오늘 등록"
+        },
+        {
+          "company": "쿠팡",
+          "actual_title": "세일즈포스 어드민 및 개발운영",
+          "summary": "데이터 정제, 리포트/대시보드 생성 및 현업 부서의 세일즈포스 활용을 지원하고 체인지 매니지먼트를 주도합니다.",
+          "logo_url": "/frontend/assets/icons/02_nexusai.svg",
+          "link": "https://www.wanted.co.kr/wd/261169",
+          "city": "서울",
+          "expYears": "경력 1~3년",
+          "daysAgo": "3일전"
+        },
+        {
+          "company": "위대한 상상(요기요)",
+          "actual_title": "Salesforce Admin",
+          "summary": "현업 페인 포인트를 분석하여 To-Be 프로세스를 설계하고, No-Code 도구를 결합하여 최적의 오퍼레이션을 구축합니다.",
+          "logo_url": "/frontend/assets/icons/03_securebit.svg",
+          "link": "https://www.wanted.co.kr/wd/22072",
+          "city": "서울",
+          "expYears": "경력 2년",
+          "daysAgo": "7일전"
+        },
+        {
+          "company": "콘센트릭스서비스코리아",
+          "actual_title": "Salesforce 개발/Admin",
+          "summary": "전사 보안 모델 설계, 유저 권한 관리, 데이터 위생 관리 및 파트너 앱(AppExchange) 도입 검토를 전담합니다.",
+          "logo_url": "/frontend/assets/icons/04_blockchainx.svg",
+          "link": "https://www.wanted.co.kr/wd/291622",
+          "city": "서울",
+          "expYears": "경력 3~5년",
+          "daysAgo": "1일전"
+        },
+        {
+          "company": "넥스트웨이브 커머스 (NextWave Commerce)",
+          "actual_title": "Salesforce Business Analyst",
+          "summary": "비즈니스 성장 단계에 맞춘 요구사항을 분석하여 To-Be 프로세스를 수립하고, 선언적(No-Code) 기능을 결합해 최적의 오퍼레이션을 구축합니다.",
+          "logo_url": "/frontend/assets/icons/05_velocitysaas.svg",
+          "link": "https://www.wanted.co.kr/wd/178166",
+          "city": "서울",
+          "expYears": "경력무관",
+          "daysAgo": "5일전"
+        },
+        {
+          "company": "핀테크랩 큐브 (FinTechLab Cube)",
+          "actual_title": "세일즈포스 시스템 관리자 (Admin)",
+          "summary": "플랫폼의 보안 모델 설계 및 복잡한 사용자 권한 체계를 관리하며, 데이터 무결성 유지와 파트너 앱(AppExchange) 도입 검토를 전담합니다.",
+          "logo_url": "/frontend/assets/icons/06_quantumlabs.svg",
+          "link": "https://www.wanted.co.kr/wd/178166",
+          "city": "서울",
+          "expYears": "경력 4~7년",
+          "daysAgo": "2일전"
+        },
+        {
+          "company": "글로벌 링크스 (Global Links)",
+          "actual_title": "Salesforce 어드민 및 데이터 분석가",
+          "summary": "영업 및 마케팅 부서의 세일즈포스 활용을 돕는 체인지 매니지먼트를 주도하고, 동적 리포트와 대시보드를 시각화하여 데이터 기반 의사결정을 지원합니다.",
+          "logo_url": "/frontend/assets/icons/07_infinitedata.svg",
+          "link": "https://www.wanted.co.kr/wd/178166",
+          "city": "서울",
+          "expYears": "경력 1년",
+          "daysAgo": "9일전"
+        },
+        {
+          "company": "클라우드브릿지 솔루션 (CloudBridge Solutions)",
+          "actual_title": "세일즈포스 컨설턴트 / Admin",
+          "summary": "다양한 도메인의 비즈니스 요구사항을 세일즈포스 플랫폼 기능으로 구현하며, Salesforce Flow Builder를 통한 정교한 프로세스 자동화를 구축합니다.",
+          "logo_url": "/frontend/assets/icons/08_devopsloop.svg",
+          "link": "https://www.wanted.co.kr/wd/178166",
+          "city": "서울",
+          "expYears": "경력 2~5년",
+          "daysAgo": "4일전"
+        }
+      ]
+    },
+    {
+      "id": "dev",
+      "title": "세일즈포스 개발자 (Salesforce Developer)",
+      "description": "선언적 환경(클릭 기반)의 빈틈을 메우고, 기업의 핵심 경쟁력이 될 수 있는 비즈니스 로직을 프로그래밍 언어로 빚어내는 고도의 엔지니어링 역할을 수행합니다. 단순 코딩을 넘어 아키텍트의 시각에서 시스템의 장기적인 확장성과 안정성, 거버너 리밋(Governor Limits) 최적화를 보장하는 기술 전문가입니다.",
+      "skills": [
+        "세일즈포스 플랫폼 아키텍처 및 거버너 리밋 이해",
+        "Apex (Trigger, Batch, Web Services) 백엔드 개발 및 테스트 클래스 작성",
+        "Lightning Web Components (LWC) 프론트엔드 개발 (JavaScript, 웹 컴포넌트 표준)",
+        "SOQL / SOSL 활용 효율적 데이터 검색 및 대규모 데이터 모델링(ERD)",
+        "SFDX 및 CI/CD 파이프라인 (GitHub, Jenkins) 활용 형상 관리 (ALM)",
+        "MuleSoft 연동 및 REST/SOAP API 기반 대규모 시스템 통합 (Enterprise Integration)"
+      ],
+      "certifications": [
+        "Platform Developer I (DEX-450 / CRT-450)",
+        "Platform Developer II",
+        "Platform App Builder (DEX-403)",
+        "Administrator (ADX-201 연계 추천)"
+      ],
+      "job_postings": [
+        {
+          "company": "한국그루브(주)",
+          "actual_title": "세일즈포스 개발자",
+          "summary": "표준 기능으로 해결할 수 없는 맞춤형 애플리케이션 및 복잡한 비즈니스 로직(Trigger/Batch)을 풀스택으로 개발합니다.",
+          "logo_url": "/frontend/assets/icons/04_blockchainx.svg",
+          "link": "https://www.jobkorea.co.kr/Recruit/GI_Read/49437565?Oem_Code=C1&logpath=1&stext=%EC%84%B8%EC%9D%BC%EC%A6%88%ED%8F%AC%EC%8A%A4+%EA%B0%9C%EB%B0%9C%EC%9E%90&listno=2&sc=630",
+          "city": "서울",
+          "expYears": "경력 3년",
+          "daysAgo": "6일전"
+        },
+        {
+          "company": "아이투맥스",
+          "actual_title": "시스템엔지니어",
+          "summary": "플랫폼 거버너 리밋(Governor Limits)을 준수하는 고성능 Apex 백엔드 로직을 설계하고, 안정적인 배포를 위한 테스트 코드를 구현합니다.",
+          "logo_url": "/frontend/assets/icons/05_velocitysaas.svg",
+          "link": "https://www.jobkorea.co.kr/Recruit/GI_Read/49379281?Oem_Code=C1&logpath=1&stext=%EC%84%B8%EC%9D%BC%EC%A6%88%ED%8F%AC%EC%8A%A4+%EA%B0%9C%EB%B0%9C%EC%9E%90&listno=3&sc=630",
+          "city": "서울",
+          "expYears": "경력 2~4년",
+          "daysAgo": "오늘 등록"
+        },
+        {
+          "company": "현대오토에버(주)",
+          "actual_title": "Salesforce CRM 시스템 개발/운영",
+          "summary": "사내 ERP/레거시 시스템과의 연동 아키텍처를 설계하고, 대용량 트랜잭션 처리를 위한 벌키파이(Bulkify) 패턴을 적용합니다.",
+          "logo_url": "/frontend/assets/icons/06_quantumlabs.svg",
+          "link": "https://www.jobkorea.co.kr/Recruit/GI_Read/49118630?Oem_Code=C1&logpath=1&stext=%EC%84%B8%EC%9D%BC%EC%A6%88%ED%8F%AC%EC%8A%A4+%EA%B0%9C%EB%B0%9C%EC%9E%90&listno=5&sc=630",
+          "city": "서울",
+          "expYears": "경력 5~8년",
+          "daysAgo": "2일전"
+        },
+        {
+          "company": "대상정보기술",
+          "actual_title": "세일즈포스 개발자",
+          "summary": "SFDX 및 스크래치 조직을 활용하여 소스 주도 개발 방법론을 실천하고, 안정적인 운영 환경 배포 프로세스를 구축합니다.",
+          "logo_url": "/frontend/assets/icons/07_infinitedata.svg",
+          "link": "https://jumpit.saramin.co.kr/position/50142507",
+          "city": "서울",
+          "expYears": "경력 1~3년",
+          "daysAgo": "8일전"
+        },
+        {
+          "company": "하이퍼스케일 테크 (HyperScale Tech)",
+          "actual_title": "Salesforce Full-Stack Developer",
+          "summary": "플랫폼 표준 기능의 한계를 넘어 LWC 프론트엔드와 Apex 백엔드를 아우르는 맞춤형 애플리케이션 및 복잡한 코어 비즈니스 로직을 개발합니다.",
+          "logo_url": "/frontend/assets/icons/08_devopsloop.svg",
+          "link": "https://jumpit.saramin.co.kr/position/50142507",
+          "city": "서울",
+          "expYears": "경력 3~6년",
+          "daysAgo": "1일전"
+        },
+        {
+          "company": "코어 인텔리전스 (Core Intelligence)",
+          "actual_title": "세일즈포스 백엔드 엔지니어",
+          "summary": "멀티테넌트 환경의 거버너 리밋(Governor Limits) 최적화를 고려하여 고성능 Apex 로직을 설계하고, 코드 품질 검증을 위한 테스트 클래스를 구현합니다.",
+          "logo_url": "/frontend/assets/icons/09_apexplatform.svg",
+          "link": "https://jumpit.saramin.co.kr/position/50142507",
+          "city": "서울",
+          "expYears": "경력 4년",
+          "daysAgo": "4일전"
+        },
+        {
+          "company": "넥서스 데이터 시스템즈 (Nexus Data Systems)",
+          "actual_title": "Salesforce CRM 시스템 연동 개발자",
+          "summary": "MuleSoft 및 REST/SOAP API를 활용하여 사내 ERP 등 대규모 레거시 시스템과의 연동 아키텍처를 설계하고, 벌키파이(Bulkify) 패턴 기반의 데이터 트랜잭션을 처리합니다.",
+          "logo_url": "/frontend/assets/icons/10_cybervision.svg",
+          "link": "https://jumpit.saramin.co.kr/position/50142507",
+          "city": "서울",
+          "expYears": "경력 5~10년",
+          "daysAgo": "10일전"
+        },
+        {
+          "company": "데브옵스 랩스 (DevOps Labs)",
+          "actual_title": "세일즈포스 전문 개발자 (SFDX/ALM)",
+          "summary": "SFDX 및 스크래치 조직(Scratch Org)을 활용한 소스 주도 개발 방법론을 실천하며, GitHub 기반의 안정적인 CI/CD 배포 파이프라인을 구축합니다.",
+          "logo_url": "/frontend/assets/icons/01_cloudtech.svg",
+          "link": "https://jumpit.saramin.co.kr/position/50142507",
+          "city": "서울",
+          "expYears": "경력 2년",
+          "daysAgo": "3일전"
+        }
+      ]
+    },
+    {
+      "id": "consultant",
+      "title": "세일즈포스 컨설턴트 (Salesforce Consultant)",
+      "description": "다양한 산업군의 비즈니스 문제를 제3자의 객관적인 시각에서 진단하고, 세일즈포스를 활용해 최적의 기술적 아키텍처를 설계하며, 프로젝트의 처음부터 끝까지 성공적인 구현과 통합을 책임지는 외부 컨설팅 전문가입니다. 기업의 '일하는 방식' 자체를 혁신(Digital Transformation)하는 변화의 촉매제 역할을 수행합니다.",
+      "skills": [
+        "거시적 비즈니스 어큐먼(Business Acumen) 및 ROI 입증 역량",
+        "심층 디스커버리 세션(Discovery Session) 주도 및 As-Is/To-Be 프로세스 매핑",
+        "산업 특화(금융, 제조, 리테일 등) 글로벌 베스트 프랙티스 접목 능력",
+        "솔루션 아키텍처 청사진 및 단계별(Phased) 로드맵 설계",
+        "Agile/Scrum 방법론 기반 프로젝트 리딩 및 리스크(Scope Creep) 관리",
+        "이해관계자 관리 및 IT-비즈니스 간 고도의 커뮤니케이션/통역 능력"
+      ],
+      "certifications": [
+        "Administrator (ADX-201 / ADM-201)",
+        "Sales Cloud Consultant (CRT-251)",
+        "Service Cloud Consultant (CRT-261)",
+        "Data Cloud Consultant"
+      ],
+      "job_postings": [
+        {
+          "company": "Clarivate",
+          "actual_title": "Technical Consultant",
+          "summary": "글로벌 비즈니스 요구사항을 기반으로 세일즈포스 기술 아키텍처를 설계하며, 글로벌 표준 솔루션 최적화 및 기술 거버넌스를 수립합니다.",
+          "logo_url": "/frontend/assets/icons/07_infinitedata.svg",
+          "link": "https://careers.clarivate.com/job/CLACLAGBJREQ135918EXTERNALENGB/Technical-Consultant?utm_source=linkedin&utm_medium=phenom-feeds",
+          "city": "서울",
+          "expYears": "경력무관",
+          "daysAgo": "오늘 등록"
+        },
+        {
+          "company": "PwC 컨설팅",
+          "actual_title": "세일즈포스 컨설턴트",
+          "summary": "대형 SI 및 C-Level 대상의 디스커버리 세션을 리드하며 기업의 일하는 방식을 혁신하는 단계별 솔루션 로드맵을 수립합니다.",
+          "logo_url": "/frontend/assets/icons/08_devopsloop.svg",
+          "link": "https://www.pwcconsulting.co.kr/ko/career/consultant/r220126.html",
+          "city": "서울",
+          "expYears": "경력 1~3년",
+          "daysAgo": "3일전"
+        },
+        {
+          "company": "솔로몬텍",
+          "actual_title": "세일즈포스 컨설턴트",
+          "summary": "Sales/Service 클라우드 중심의 프로세스 최적화를 컨설팅하며, 가비지 데이터를 차단하고 확장성 있는 시스템 구조를 제안합니다.",
+          "logo_url": "/frontend/assets/icons/09_apexplatform.svg",
+          "link": "https://www.wanted.co.kr/wd/81491",
+          "city": "서울",
+          "expYears": "경력 2년",
+          "daysAgo": "7일전"
+        },
+        {
+          "company": "스트래티지 앤 파트너스 (Strategy & Partners)",
+          "actual_title": "Salesforce 비즈니스 컨설턴트",
+          "summary": "대기업 및 C-Level 대상의 디스커버리 세션을 리드하며, As-Is 페인 포인트를 분석하여 기업의 일하는 방식을 혁신하는 단계별(Phased) To-Be 로드맵을 수립합니다.",
+          "logo_url": "/frontend/assets/icons/10_cybervision.svg",
+          "link": "https://www.wanted.co.kr/wd/81491",
+          "city": "서울",
+          "expYears": "경력 3~5년",
+          "daysAgo": "1일전"
+        },
+        {
+          "company": "인사이트 아키텍츠 (Insight Architects)",
+          "actual_title": "세일즈포스 솔루션 아키텍트",
+          "summary": "글로벌 비즈니스 요구사항을 진단하여 확장성 있는 세일즈포스 기술 아키텍처 청사진을 설계하고, 거시적인 관점에서 솔루션 최적화 가이드를 제안합니다.",
+          "logo_url": "/frontend/assets/icons/01_cloudtech.svg",
+          "link": "https://www.wanted.co.kr/wd/81491",
+          "city": "서울",
+          "expYears": "경력무관",
+          "daysAgo": "5일전"
+        },
+        {
+          "company": "인더스트리 포커스 (Industry Focus)",
+          "actual_title": "산업 특화 CRM 컨설턴트 (금융/제조)",
+          "summary": "금융, 제조, 리테일 등 특정 도메인의 글로벌 베스트 프랙티스를 접목하여, 고객사의 비즈니스 특성에 맞춘 Sales 및 Service 클라우드 프로세스를 최적화합니다.",
+          "logo_url": "/frontend/assets/icons/02_nexusai.svg",
+          "link": "https://www.wanted.co.kr/wd/81491",
+          "city": "서울",
+          "expYears": "경력 4~7년",
+          "daysAgo": "2일전"
+        },
+        {
+          "company": "에자일 딜리버리 랩스 (Agile Delivery Labs)",
+          "actual_title": "세일즈포스 프로젝트 매니저 (PM)",
+          "summary": "Agile/Scrum 방법론을 기반으로 전체 구축 프로젝트의 처음부터 끝까지 리딩하며, 이해관계자 간의 커뮤니케이션을 조율하고 리스크(Scope Creep)를 관리합니다.",
+          "logo_url": "/frontend/assets/icons/03_securebit.svg",
+          "link": "https://www.wanted.co.kr/wd/81491",
+          "city": "서울",
+          "expYears": "경력 1년",
+          "daysAgo": "9일전"
+        },
+        {
+          "company": "데이터메트릭스 (DataMetrics)",
+          "actual_title": "Data Cloud & 플랫폼 컨설턴트",
+          "summary": "고객사 내 다양한 채널의 데이터를 통합하기 위해 Data Cloud 기반의 데이터 모델링을 컨설팅하고, 비즈니스 ROI를 극대화할 수 있는 데이터 아키텍처를 설계합니다.",
+          "logo_url": "/frontend/assets/icons/04_blockchainx.svg",
+          "link": "https://www.wanted.co.kr/wd/81491",
+          "city": "서울",
+          "expYears": "경력 2~5년",
+          "daysAgo": "4일전"
+        }
+      ]
+    },
+    {
+      "id": "pu",
+      "title": "파워 유저 (CRM Power User / Product Champion)",
+      "description": "실제로 세일즈포스 솔루션을 활용하여 비즈니스 성과를 내는 사용자로서, 도구를 통해 본인의 직무 효율을 극대화하고 사내 시스템 도입 문화를 선도하는 내부 에반젤리스트입니다. IT 팀과 현업 부서 사이의 간극을 줄이는 살아있는 피드백 루프 역할을 수행하며 시스템이 실제 성과로 이어지게 하는 실전 지휘관입니다.",
+      "skills": [
+        "비즈니스 도메인(B2B 영업, 마케팅, 고객 지원) 전문성 및 KPI 정렬",
+        "예측 및 데이터 기반 의사결정 (영업 파이프라인/전환율 분석)",
+        "분석적 데이터 스토리텔링 (Data Storytelling) 및 의사결정 인사이트 도출",
+        "현업 관점의 프로세스 최적화 제안 (인라인 편집, 칸반 뷰 등 요건 도출)",
+        "데이터 품질 관리자(Data Hygiene Advocate) 역할 수행 및 GIGO 원칙 전파",
+        "사내 에반젤리스트로서 교육과 소통을 통한 주도 및 변화 관리 (Change Agent)"
+      ],
+      "certifications": [
+        "Salesforce Associate",
+        "Administrator (ADX-201 / ADM-201)",
+        "Marketing Cloud Email Specialist (도메인 특화 자격)",
+        "Sales Representative (도메인 특화 자격)"
+      ],
+      "job_postings": [
+        {
+          "company": "쏘카",
+          "actual_title": "Business Operations 매니저",
+          "summary": "비즈니스 운영 관점에서 세일즈포스 포캐스팅 데이터를 활용해 분기 매출 지표를 예측하고, 현업 중심의 시스템 개선 요건을 도출하여 IT 부서와 긴밀히 소통합니다.",
+          "logo_url": "/frontend/assets/icons/03_securebit.svg",
+          "link": "https://kr.indeed.com/viewjob?jk=f15967059e0a4d5b&tk=1js9uulnsghnr800&from=serp&vjs=3",
+          "city": "서울",
+          "expYears": "경력 2~4년",
+          "daysAgo": "4일전"
+        },
+        {
+          "company": "아마존 코리아",
+          "actual_title": "Operations Manager for AI & Core Service, GSO",
+          "summary": "고객 여정 분석을 바탕으로 개인화 캠페인을 실행하며, 지속적인 데이터 품질 관리를 통해 전사 대시보드의 신뢰도와 분석 인사이트를 유지합니다.",
+          "logo_url": "/frontend/assets/icons/04_blockchainx.svg",
+          "link": "https://kr.indeed.com/viewjob?jk=f780c3c1f31d1063&tk=1js9v0m7sgf4j800&from=serp&vjs=3",
+          "city": "서울",
+          "expYears": "경력 5~8년",
+          "daysAgo": "오늘 등록"
+        },
+        {
+          "company": "디에스오토",
+          "actual_title": "세일즈포스 담당자",
+          "summary": "현업 프로세스의 병목 구간을 진단하여 개선 과제를 도출하고, 사내 사용자 교육 및 변화 관리를 주도하여 시스템 채택률(Adoption)을 극대화합니다.",
+          "logo_url": "/frontend/assets/icons/05_velocitysaas.svg",
+          "link": "https://www.jobkorea.co.kr/Recruit/GI_Read/48649846?Oem_Code=C1&logpath=1&stext=QA%20QC%20%ED%92%88%EC%A7%88&listno=5827",
+          "city": "서울",
+          "expYears": "경력무관",
+          "daysAgo": "8일전"
+        },
+        {
+          "company": "벨로시티 글로벌 (Velocity Global)",
+          "actual_title": "B2B Sales Operations 매니저",
+          "summary": "영업 실무 최전선에서 세일즈포스의 파이프라인 및 포캐스팅 기능을 활용해 분기 매출 지표를 예측하고, 데이터 기반 영업 프로세스를 최적화하여 매출 KPI 달성을 견인합니다.",
+          "logo_url": "/frontend/assets/icons/06_quantumlabs.svg",
+          "link": "https://kr.indeed.com/viewjob?jk=f15967059e0a4d5b&tk=1js9uulnsghnr800&from=serp&vjs=3",
+          "city": "서울",
+          "expYears": "경력 3~6년",
+          "daysAgo": "1일전"
+        },
+        {
+          "company": "모멘텀 마케팅 (Momentum Marketing)",
+          "actual_title": "CRM 마케팅 스페셜리스트",
+          "summary": "마케팅 클라우드 데이터를 바탕으로 고객 여정(Customer Journey)을 분석하여 개인화 캠페인을 실행하고, 세그먼트별 리턴율 및 전환율 인사이트를 도출합니다.",
+          "logo_url": "/frontend/assets/icons/07_infinitedata.svg",
+          "link": "https://kr.indeed.com/viewjob?jk=f15967059e0a4d5b&tk=1js9uulnsghnr800&from=serp&vjs=3",
+          "city": "서울",
+          "expYears": "경력 1~3년",
+          "daysAgo": "5일전"
+        },
+        {
+          "company": "디지털 커머스 랩스 (Digital Commerce Labs)",
+          "actual_title": "그로스 마케터 (Growth Marketer)",
+          "summary": "세일즈포스 대시보드를 기반으로 마케팅 퍼널 데이터를 분석하고, GIGO 원칙에 따른 철저한 데이터 위생 관리를 수행하여 마케팅 ROI 예측 모델의 신뢰도를 유지합니다.",
+          "logo_url": "/frontend/assets/icons/08_devopsloop.svg",
+          "link": "https://kr.indeed.com/viewjob?jk=f15967059e0a4d5b&tk=1js9uulnsghnr800&from=serp&vjs=3",
+          "city": "서울",
+          "expYears": "경력 2년",
+          "daysAgo": "3일전"
+        },
+        {
+          "company": "케어플러스 (CarePlus)",
+          "actual_title": "고객 경험(CX) 데이터 분석가",
+          "summary": "서비스 클라우드의 VOC 데이터를 분석하여 고객 지원 프로세스의 병목 구간을 진단하고, 현업 관점의 UI/UX 개선 요구사항을 도출하여 IT 부서와 소통합니다.",
+          "logo_url": "/frontend/assets/icons/09_apexplatform.svg",
+          "link": "https://kr.indeed.com/viewjob?jk=f15967059e0a4d5b&tk=1js9uulnsghnr800&from=serp&vjs=3"
+        },
+        {
+          "company": "시너지 비즈니스 그룹 (Synergy Business Group)",
+          "actual_title": "세일즈포스 사내 에반젤리스트 (Product Champion)",
+          "summary": "세일즈포스를 도구 삼아 현업 부서의 직무 생산성을 높이고, 사내 임직원 대상의 시스템 교육 및 변화 관리를 주도하여 플랫폼 채택률(Adoption)을 극대화합니다.",
+          "logo_url": "/frontend/assets/icons/10_cybervision.svg",
+          "link": "https://kr.indeed.com/viewjob?jk=f15967059e0a4d5b&tk=1js9uulnsghnr800&from=serp&vjs=3",
+          "city": "서울",
+          "expYears": "경력무관",
+          "daysAgo": "7일전"
+        }
+      ]
+    }
+  ],
+  "subscribers": [
+    {
+      "id": 1,
+      "name": "김관리",
+      "email": "example1@nomail.com",
+      "interested_career": "admin"
+    },
+    {
+      "id": 2,
+      "name": "이개발",
+      "email": "example2@nomail.com",
+      "interested_career": "dev"
+    },
+    {
+      "id": 3,
+      "name": "박컨설",
+      "email": "example3@nomail.com",
+      "interested_career": "consultant"
+    },
+    {
+      "id": 4,
+      "name": "김파워",
+      "email": "example4@nomail.com",
+      "interested_career": "pu"
+    },
+    {
+      "id": 5,
+      "name": "장수민",
+      "email": "aaaauiih4zcofrwtxrzixwrhpy@aicrm2.slack.com",
+      "interested_career": "dev"
+    },
+    {
+      "id": 6,
+      "name": "장수민",
+      "email": "aaaauiih4zcofrwtxrzixwrhpy@aicrm2.slack.com",
+      "interested_career": "admin"
+    },
+    {
+      "id": 7,
+      "name": "장수민",
+      "email": "aaaauiih4zcofrwtxrzixwrhpy@aicrm2.slack.com",
+      "interested_career": "admin"
+    },
+    {
+      "id": 8,
+      "name": "장수민",
+      "email": "aaaauiih4zcofrwtxrzixwrhpy@aicrm2.slack.com",
+      "interested_career": "admin"
+    },
+    {
+      "id": 9,
+      "name": "장수민",
+      "email": "aaaauiih4zcofrwtxrzixwrhpy@aicrm2.slack.com",
+      "interested_career": "admin"
+    },
+    {
+      "id": 10,
+      "name": "장수민",
+      "email": "aaaauiih4zcofrwtxrzixwrhpy@aicrm2.slack.com",
+      "interested_career": "admin"
+    },
+    {
+      "id": 11,
+      "name": "장수민",
+      "email": "aaaauiih4zcofrwtxrzixwrhpy@aicrm2.slack.com",
+      "interested_career": "pu"
+    },
+    {
+      "id": 12,
+      "name": "장수민",
+      "email": "aaaauiih4zcofrwtxrzixwrhpy@aicrm2.slack.com",
+      "interested_career": "pu"
+    },
+    {
+      "id": 13,
+      "name": "장수민",
+      "email": "aaaauiih4zcofrwtxrzixwrhpy@aicrm2.slack.com",
+      "interested_career": "pu"
+    },
+    {
+      "id": 14,
+      "name": "장수민",
+      "email": "aaaauiih4zcofrwtxrzixwrhpy@aicrm2.slack.com",
+      "interested_career": "pu"
+    },
+    {
+      "id": 15,
+      "name": "장수민",
+      "email": "aaaauiih4zcofrwtxrzixwrhpy@aicrm2.slack.com",
+      "interested_career": "pu"
+    },
+    {
+      "id": 16,
+      "name": "장수민",
+      "email": "aaaauiih4zcofrwtxrzixwrhpy@aicrm2.slack.com",
+      "interested_career": "pu"
+    },
+    {
+      "id": 17,
+      "name": "장수민",
+      "email": "aaaauiih4zcofrwtxrzixwrhpy@aicrm2.slack.com",
+      "interested_career": "pu"
+    },
+    {
+      "id": 18,
+      "name": "장수민",
+      "email": "aaaauiih4zcofrwtxrzixwrhpy@aicrm2.slack.com",
+      "interested_career": "pu"
+    },
+    {
+      "id": 19,
+      "name": "장수민",
+      "email": "aaaauiih4zcofrwtxrzixwrhpy@aicrm2.slack.com",
+      "interested_career": "pu"
+    },
+    {
+      "id": 20,
+      "name": "장수민",
+      "email": "aaaauiih4zcofrwtxrzixwrhpy@aicrm2.slack.com",
+      "interested_career": "pu"
+    },
+    {
+      "id": 21,
+      "name": "장수민",
+      "email": "aaaauiih4zcofrwtxrzixwrhpy@aicrm2.slack.com",
+      "interested_career": "pu"
+    },
+    {
+      "id": 22,
+      "name": "장수민",
+      "email": "aaaauiih4zcofrwtxrzixwrhpy@aicrm2.slack.com",
+      "interested_career": "pu"
+    },
+    {
+      "id": 23,
+      "name": "장수민",
+      "email": "jsmsumin2@naver.com",
+      "interested_career": "consultant"
+    },
+    {
+      "id": 24,
+      "name": "장수민",
+      "email": "aaaauiih4zcofrwtxrzixwrhpy@aicrm2.slack.com",
+      "interested_career": "dev"
+    },
+    {
+      "id": 25,
+      "name": "장수민",
+      "email": "aaaauiih4zcofrwtxrzixwrhpy@aicrm2.slack.com",
+      "interested_career": "pu"
+    },
+    {
+      "id": 26,
+      "name": "장수민",
+      "email": "aaaauiih4zcofrwtxrzixwrhpy@aicrm2.slack.com",
+      "interested_career": "pu"
+    },
+    {
+      "id": 27,
+      "name": "장수민",
+      "email": "aaaauiih4zcofrwtxrzixwrhpy@aicrm2.slack.com",
+      "interested_career": "consultant"
+    },
+    {
+      "id": 28,
+      "name": "장수민",
+      "email": "aaaauiih4zcofrwtxrzixwrhpy@aicrm2.slack.com",
+      "interested_career": "pu"
+    },
+    {
+      "id": 29,
+      "name": "장수민",
+      "email": "aaaauiih4zcofrwtxrzixwrhpy@aicrm2.slack.com",
+      "interested_career": "consultant"
+    }
+  ],
+  "comments": [
+    {
+      "id": 1,
+      "author": "김민준",
+      "password": "pass1234!",
+      "content": "세일즈포스는 처음이지만 밤새워서라도 완벽히 마스터해 올해 안에 꼭 취뽀하겠습니다!",
+      "created_at": "2026-06-26"
+    },
+    {
+      "id": 2,
+      "author": "이서연",
+      "password": "sfdev0000",
+      "content": "트레일헤드 왕초보 배지부터 시작해 기필코 당당한 주니어 개발자로 입사하겠습니다!",
+      "created_at": "2026-06-27"
+    },
+    {
+      "id": 3,
+      "author": "박진우",
+      "password": "qwer9999",
+      "content": "Apex 코드 한 줄도 모르는 뉴비지만 끝까지 살아남아 세일즈포스 전문가가 되겠습니다!",
+      "created_at": "2026-06-28"
+    },
+    {
+      "id": 4,
+      "author": "최지아",
+      "password": "salesforce1",
+      "content": "기초부터 독하게 배워서 무조건 6개월 안에 Admin 자격증 따고 취업 골인하겠습니다!",
+      "created_at": "2026-06-29"
+    }
+  ]
+}
