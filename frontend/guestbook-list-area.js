@@ -1,5 +1,10 @@
 // json-server가 떠 있는 로컬 서버 주소
-const GB_API = "http://localhost:3000";
+const isLocalhost =
+  window.location.hostname === "localhost" ||
+  window.location.hostname === "127.0.0.1";
+const GB_API = isLocalhost
+  ? "http://localhost:3000"
+  : "miniproject-ijxt.onrender.com";
 
 // 현재 화면에 렌더링된 댓글 목록 (삭제 시 비밀번호 대조용으로 보관)
 let sfGbComments = [];
@@ -108,7 +113,9 @@ async function sfGbSubmitComment(data) {
     await sfGbRenderList();
   } catch (error) {
     console.error(error);
-    alert("등록 중 오류가 발생했습니다. json-server가 켜져 있는지 확인해주세요.");
+    alert(
+      "등록 중 오류가 발생했습니다. json-server가 켜져 있는지 확인해주세요.",
+    );
   }
 }
 
@@ -155,7 +162,9 @@ async function sfGbRenderList() {
       .join("");
   } catch (error) {
     console.error(error);
-    alert("방명록 목록을 불러오지 못했습니다. json-server가 켜져 있는지 확인해주세요.");
+    alert(
+      "방명록 목록을 불러오지 못했습니다. json-server가 켜져 있는지 확인해주세요.",
+    );
   }
 }
 
@@ -223,13 +232,17 @@ async function sfGbHandleDeleteConfirm(commentId) {
   }
 
   try {
-    const response = await fetch(`${GB_API}/comments/${id}`, { method: "DELETE" });
+    const response = await fetch(`${GB_API}/comments/${id}`, {
+      method: "DELETE",
+    });
     if (!response.ok) throw new Error("삭제에 실패했습니다.");
 
     document.getElementById(`sf-gb-item-${id}`).remove();
     sfGbComments = sfGbComments.filter((c) => c.id !== id);
   } catch (error) {
     console.error(error);
-    alert("삭제 중 오류가 발생했습니다. json-server가 켜져 있는지 확인해주세요.");
+    alert(
+      "삭제 중 오류가 발생했습니다. json-server가 켜져 있는지 확인해주세요.",
+    );
   }
 }

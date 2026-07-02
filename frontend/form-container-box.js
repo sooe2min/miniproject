@@ -1,5 +1,10 @@
 // json-server가 떠 있는 로컬 서버 주소
-const API = "http://localhost:3000";
+const isLocalhost =
+  window.location.hostname === "localhost" ||
+  window.location.hostname === "127.0.0.1";
+const API = isLocalhost
+  ? "http://localhost:3000"
+  : "miniproject-ijxt.onrender.com";
 
 // 이메일 발송을 담당하는 Google Apps Script 배포 URL
 const SCRIPT_URL =

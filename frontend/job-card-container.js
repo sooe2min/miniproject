@@ -1,5 +1,10 @@
 // json-server가 떠 있는 로컬 서버 주소
-const JOB_API = "http://localhost:3000";
+const isLocalhost =
+  window.location.hostname === "localhost" ||
+  window.location.hostname === "127.0.0.1";
+const JOB_API = isLocalhost
+  ? "http://localhost:3000"
+  : "miniproject-ijxt.onrender.com";
 
 // 직무 id별 캐릭터 이미지 경로
 const sfJcImageMap = {
