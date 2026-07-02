@@ -4,7 +4,7 @@ const isLocalhost =
   window.location.hostname === "127.0.0.1";
 const sfJhApiBaseUrl = isLocalhost
   ? "http://localhost:3000"
-  : "http://miniproject-ijxt.onrender.com;
+  : "https://miniproject-ijxt.onrender.com;
 
 document.addEventListener("DOMContentLoaded", () => {
   sfJhInitJobHeader();

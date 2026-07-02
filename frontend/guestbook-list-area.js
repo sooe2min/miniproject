@@ -1,10 +1,10 @@
 // json-server가 떠 있는 로컬 서버 주소
-const isLocalhost =
+const glIsLocalhost =
   window.location.hostname === "localhost" ||
   window.location.hostname === "127.0.0.1";
-const GB_API = isLocalhost
+const GB_API = glIsLocalhost
   ? "http://localhost:3000"
-  : "http://miniproject-ijxt.onrender.com";
+  : "https://miniproject-ijxt.onrender.com";
 
 // 현재 화면에 렌더링된 댓글 목록 (삭제 시 비밀번호 대조용으로 보관)
 let sfGbComments = [];

@@ -2,12 +2,12 @@
 // 접두사 규칙: 함수명/변수명 앞에 'cc' (core-competencies) 접두사 사용
 
 // json-server로 띄운 가상 REST API 서버 주소 (README 기준 포트 3000)
-const isLocalhost =
+const ccIsLocalhost =
   window.location.hostname === "localhost" ||
   window.location.hostname === "127.0.0.1";
-const CC_API_BASE = isLocalhost
+const CC_API_BASE = ccIsLocalhost
   ? "http://localhost:3000"
-  : "http://miniproject-ijxt.onrender.com";
+  : "https://miniproject-ijxt.onrender.com";
 
 // 체크리스트 전체 항목 수. 직무 데이터를 받아오기 전까지의 기본값이며,
 // 실제 값은 ccRenderChecklist()에서 받아온 skills 배열 길이로 갱신됨
